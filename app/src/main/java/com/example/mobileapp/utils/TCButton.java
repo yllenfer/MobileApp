@@ -4,9 +4,9 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 
-import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatButton;
 
-public class TCButton extends AppCompatEditText {
+public class TCButton extends AppCompatButton {
 
     public TCButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
