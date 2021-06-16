@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApp">
         <activity android:name=".LogIn"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.MobileApp.NoActionBar"
             >
             <intent-filter>
