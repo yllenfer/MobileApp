@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Purchase"></activity>
+        <activity android:name=".Splash"></activity>
+        <activity android:name=".Purchase" />
         <activity android:name=".Checkout" />
         <activity android:name=".Overview" />
         <activity android:name=".MainActivity">
