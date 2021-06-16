@@ -244,7 +244,7 @@
         tools:ignore="VectorDrawableCompat" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btregister"
         android:layout_width="303dp"
         android:layout_height="55dp"
         android:layout_marginBottom="550dp"

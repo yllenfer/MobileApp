@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Mobile App</string>
     <string name="todo">TODO</string>
+    <string name="skip"><u>Skip</u></string>
 </resources>
