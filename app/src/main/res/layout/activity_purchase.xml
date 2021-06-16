@@ -4,8 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#302E2E"
+    android:background="@drawable/background_color"
     tools:context=".Purchase">
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_star_rate_241"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="479dp" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_star_rate_24"
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="479dp" />
 
     <Button
         android:id="@+id/button"
@@ -39,6 +55,7 @@
         android:id="@+id/button3"
         android:layout_width="303dp"
         android:layout_height="55dp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="550dp"
         android:background="@drawable/btn_bg"
         android:text="contact us: +51 222-222-222"
@@ -47,18 +64,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="201dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
-        app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/textView"
@@ -87,15 +92,25 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="317dp"
-        android:layout_height="32dp"
+        android:layout_width="60dp"
+        android:layout_height="23dp"
         android:layout_marginTop="250dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginRight="250dp"
         android:text="Review"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_star_rate_241"
+        tools:layout_editor_absoluteX="191dp"
+        tools:layout_editor_absoluteY="479dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -108,5 +123,68 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar3"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="414dp"
+        android:layout_height="55dp"
+        android:layout_gravity="bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="BottomAppBar" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="33dp"
+        android:layout_height="31dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="680dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/bottomAppBar3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="222dp"
+        android:layout_height="135dp"
+        android:layout_marginBottom="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar3"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_star_rate_241"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="479dp" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_star_rate_241"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="479dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
