@@ -5,20 +5,21 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatTextView;
 
-public class TCEditTextTitle extends AppCompatEditText {
+public class TCToolbarTitle extends AppCompatTextView {
 
-    public TCEditTextTitle(Context context, AttributeSet attrs, int defStyle) {
+    public TCToolbarTitle(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
 
-    public TCEditTextTitle(Context context, AttributeSet attrs) {
+    public TCToolbarTitle(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public TCEditTextTitle(Context context) {
+    public TCToolbarTitle(Context context) {
         super(context);
         init();
     }

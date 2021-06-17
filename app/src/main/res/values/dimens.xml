@@ -3,6 +3,7 @@
     <dimen name="button_background_radius">10dp</dimen>
 
     <dimen name="title_size_toolbar">20sp</dimen>
+    <dimen name="h1_size">20sp</dimen>
 
 
 </resources>

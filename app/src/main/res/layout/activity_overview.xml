@@ -4,6 +4,205 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_color"
     tools:context=".Overview">
+
+    <com.example.mobileapp.utils.TCTextView
+        android:id="@+id/products_box3"
+        android:layout_width="213dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="11dp"
+        android:text="xxxx-xxxx-xxxx-xxxx "
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/credi_card_info_title"
+        app:layout_constraintTop_toBottomOf="@+id/credi_card_info_title" />
+
+    <com.example.mobileapp.utils.TCTextView
+        android:id="@+id/address_info"
+        android:layout_width="204dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="11dp"
+        android:text="lake town street 234"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/billing_info_title"
+        app:layout_constraintTop_toBottomOf="@+id/billing_info_title" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCheckout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.mobileapp.utils.TCToolbarTitle
+            android:id="@+id/checkout_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
+            android:paddingRight="0dp"
+            android:text="OVERVIEW"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_size_toolbar" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarBottom"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/ic_bottom_layer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/back_arrow_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/shopping_cart_image"
+        android:layout_width="31dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarCheckout"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarCheckout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
+        tools:ignore="VectorDrawableCompat" />
+
+    <com.example.mobileapp.utils.TCButton
+        android:id="@+id/button"
+        android:layout_width="255dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/btn_bg"
+        android:text="COMPLETE ORDER"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/toolbarBottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+    <ImageView
+        android:id="@+id/notification"
+        android:layout_width="37dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbarBottom"
+        app:srcCompat="@drawable/ic_baseline_notifications_active_24"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarBottom"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24"
+        tools:ignore="VectorDrawableCompat" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="30dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="30dp" />
+
+
+    <com.example.mobileapp.utils.TCTextViewBold
+        android:id="@+id/credi_card_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="30dp"
+        android:text="Creditcard info"
+        android:textColor="@color/white"
+        android:textSize="@dimen/h1_size"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCheckout" />
+
+    <com.example.mobileapp.utils.TCTextViewBold
+        android:id="@+id/billing_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="30dp"
+        android:text="Billing Info"
+        android:textColor="@color/white"
+        android:textSize="@dimen/h1_size"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/products_box3" />
+
+    <com.example.mobileapp.utils.TCTextView
+        android:id="@+id/products_box"
+        android:layout_width="216dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="11dp"
+        android:text="item 1 $300 \nitem 2 $400 \nitem 3 $400 \nitem 4 $300"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/products_info_title"
+        app:layout_constraintTop_toBottomOf="@+id/products_info_title" />
+
+    <com.example.mobileapp.utils.TCTextViewBold
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Total=400"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/products_box"
+        app:layout_constraintTop_toBottomOf="@+id/products_box" />
+
+    <com.example.mobileapp.utils.TCTextViewBold
+        android:id="@+id/products_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="30dp"
+        android:text="Products"
+        android:textColor="@color/white"
+        android:textSize="@dimen/h1_size"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/address_info" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
