@@ -35,166 +35,6 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@drawable/ic_bottom_layer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp">
-
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <com.example.mobileapp.utils.TCEditText
-        android:id="@+id/inputState"
-        android:layout_width="217dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="State"
-        android:backgroundTint="@color/white"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/inputAddress"
-        app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
-
-    <com.example.mobileapp.utils.TCEditText
-        android:id="@+id/inputAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:ems="10"
-        android:hint="Address"
-        android:backgroundTint="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/title_1" />
-
-    <com.example.mobileapp.utils.TCEditText
-        android:id="@+id/inputPostalCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:ems="10"
-        android:hint="Postal Code"
-        android:backgroundTint="@color/white"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/inputState"
-        app:layout_constraintTop_toBottomOf="@+id/inputState" />
-
-    <com.example.mobileapp.utils.TCEditText
-        android:id="@+id/inputCardNumber"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Card Number"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/visa_button" />
-
-    <com.example.mobileapp.utils.TCEditText
-        android:id="@+id/inputVerificationValue"
-        android:layout_width="106dp"
-        android:layout_height="51dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="CCV"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/white"
-        app:layout_constraintBaseline_toBaselineOf="@+id/inputEpiryDate"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3" />
-
-    <com.example.mobileapp.utils.TCEditText
-        android:id="@+id/inputEpiryDate"
-        android:layout_width="109dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="MM/YY"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/inputCardNumber"
-        app:layout_constraintTop_toBottomOf="@+id/inputCardNumber" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="30dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="30dp"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="30dp" />
-
-    <com.example.mobileapp.utils.TCButton
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/btn_bg"
-        android:text="COMPLETE ORDER"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/toolbar"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/inputEpiryDate"
-        app:layout_constraintVertical_bias="0.745" />
-
-    <com.example.mobileapp.utils.TCTextViewBold
-        android:id="@+id/title_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="24dp"
-        android:text="BILLING ADDRESS"
-        android:textColor="@color/white"
-        android:textSize="@dimen/h1_size"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCheckout" />
-
-    <com.example.mobileapp.utils.TCTextViewBold
-        android:id="@+id/title_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="36dp"
-        android:text="PAYMENT METHODS"
-        android:textColor="@color/white"
-        android:textSize="@dimen/h1_size"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/inputPostalCode" />
-
-    <ImageView
-        android:id="@+id/back_arrow_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
-        tools:ignore="VectorDrawableCompat" />
-
     <ImageView
         android:id="@+id/shopping_cart_image"
         android:layout_width="31dp"
@@ -210,27 +50,215 @@
         tools:ignore="VectorDrawableCompat" />
 
     <ImageView
-        android:id="@+id/paypal_button"
-        android:layout_width="32dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintStart_toEndOf="@+id/visa_button"
-        app:layout_constraintTop_toTopOf="@+id/visa_button"
-        app:srcCompat="@drawable/paypal"
-        tools:ignore="VectorDrawableCompat"
-        android:contentDescription="visa option for user" />
+        android:id="@+id/back_arrow_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
+        tools:ignore="VectorDrawableCompat" />
 
-    <ImageView
-        android:id="@+id/visa_button"
-        android:layout_width="44dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/title_2"
-        app:srcCompat="@drawable/visa"
-        tools:ignore="VectorDrawableCompat"
-        android:contentDescription="paypal option for user"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/ic_bottom_layer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCheckout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="30dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="30dp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="30dp" />
+
+            <com.example.mobileapp.utils.TCEditText
+                android:id="@+id/inputPostalCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:textColor="#FFFFFF"
+                android:hint="Postal Code"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/inputState"
+                app:layout_constraintTop_toBottomOf="@+id/inputState" />
+
+            <com.example.mobileapp.utils.TCTextViewBold
+                android:id="@+id/title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="32dp"
+                android:text="PAYMENT METHODS"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h1_size"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/inputPostalCode" />
+
+            <com.example.mobileapp.utils.TCEditText
+                android:id="@+id/inputState"
+                android:layout_width="217dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="11dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint="State"
+                android:textColor="#FFFFFF"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/inputAddress"
+                app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
+
+            <com.example.mobileapp.utils.TCEditText
+                android:id="@+id/inputAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint="Address"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#EDDFDF"
+                android:textColorHint="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/title_1" />
+
+            <com.example.mobileapp.utils.TCEditText
+                android:id="@+id/inputCardNumber"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="36dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint="Card Number"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/visa_button" />
+
+            <com.example.mobileapp.utils.TCEditText
+                android:id="@+id/inputVerificationValue"
+                android:layout_width="106dp"
+                android:layout_height="51dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint="CCV"
+                android:textColor="#FFFFFF"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/white"
+                app:layout_constraintBaseline_toBaselineOf="@+id/inputEpiryDate"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3" />
+
+            <com.example.mobileapp.utils.TCEditText
+                android:id="@+id/inputEpiryDate"
+                android:layout_width="109dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:textColor="#FFFFFF"
+                android:hint="MM/YY"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/inputCardNumber"
+                app:layout_constraintTop_toBottomOf="@+id/inputCardNumber" />
+
+
+            <com.example.mobileapp.utils.TCButton
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/btn_bg"
+                android:text="COMPLETE ORDER"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/inputEpiryDate"
+                app:layout_constraintVertical_bias="0.433" />
+
+            <com.example.mobileapp.utils.TCTextViewBold
+                android:id="@+id/title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="32dp"
+                android:text="BILLING ADDRESS"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h1_size"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/paypal_button"
+                android:layout_width="32dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:contentDescription="visa option for user"
+                app:layout_constraintStart_toEndOf="@+id/visa_button"
+                app:layout_constraintTop_toTopOf="@+id/visa_button"
+                app:srcCompat="@drawable/paypal"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageView
+                android:id="@+id/visa_button"
+                android:layout_width="44dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="paypal option for user"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/title_2"
+                app:srcCompat="@drawable/visa"
+                tools:ignore="VectorDrawableCompat" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
 
     <ImageView
         android:id="@+id/notification"
@@ -255,6 +283,8 @@
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:srcCompat="@drawable/ic_baseline_account_circle_24"
         tools:ignore="VectorDrawableCompat" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
