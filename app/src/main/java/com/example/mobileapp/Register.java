@@ -2,7 +2,9 @@ package com.example.mobileapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class Register extends AppCompatActivity {
 
@@ -11,4 +13,10 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
     }
-}
+
+    public void goLogIn(View view) {
+        Intent intent = new Intent(Register.this, LogIn.class);
+        startActivity(intent);
+        finish();
+        }
+    }

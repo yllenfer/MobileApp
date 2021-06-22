@@ -3,8 +3,10 @@ package com.example.mobileapp;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
@@ -28,4 +30,11 @@ public class LogIn extends AppCompatActivity {
             );
         }
     }
+
+    public void goRegister(View view) {
+        Intent intent  = new Intent(LogIn.this, Register.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

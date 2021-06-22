@@ -13,6 +13,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="140dp"
         android:background="@drawable/btn_bg"
+        android:onClick="goRegister"
         android:text="REGISTER"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
