@@ -38,6 +38,8 @@
             android:theme="@style/Theme.MobileApp.NoActionBar" />
         <activity android:name=".MainActivity">
         </activity>
+        <activity android:name="Product"></activity>
+        <activity android:name=".cartActivity"></activity>
     </application>
 
 </manifest>
