@@ -13,4 +13,5 @@
     <string name="err_msg_enter_ccv">Please enter ccv</string>
 
 
+    <string name="checkout">Check out</string>
 </resources>
