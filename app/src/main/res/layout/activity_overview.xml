@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/content_layout"
     android:background="@drawable/background_color"
     tools:context=".Overview">
 
@@ -91,7 +92,7 @@
         tools:ignore="VectorDrawableCompat" />
 
     <com.example.mobileapp.utils.TCButton
-        android:id="@+id/button"
+        android:id="@+id/completeOrder"
         android:layout_width="255dp"
         android:layout_height="55dp"
         android:layout_marginBottom="68dp"
