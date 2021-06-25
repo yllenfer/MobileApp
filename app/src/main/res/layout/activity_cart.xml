@@ -34,6 +34,20 @@
         app:layout_constraintVertical_bias="0.679" />
 
 
+    <TextView
+        android:id="@+id/textView"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="340dp"
+        android:layout_height="120dp"
+        android:background="#8A8A8A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+
 
 
     <TextView
@@ -80,18 +94,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.624" />
 
-    <TextView
-        android:id="@+id/textView2"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="340dp"
-        android:layout_height="120dp"
-        android:background="#8A8A8A"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+
 
     <TextView
         android:id="@+id/textView6"
@@ -206,7 +209,7 @@
         android:paddingTop="20dp"
         android:paddingEnd="0dp"
         android:paddingRight="0dp"
-        android:text="CHECK OUT"
+        android:text="@string/cart"
         android:textColor="@color/white"
         android:textSize="@dimen/title_size_toolbar">
 
@@ -224,7 +227,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.031"
-        app:srcCompat="@drawable/abc_vector_test" />
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
+        tools:ignore="VectorDrawableCompat" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -247,11 +251,29 @@
         android:background="@drawable/btn_bg"
         android:text="@string/checkout"
         android:textColor="#FFFFFF"
+        android:onClick="goToCheckout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottomAppBar3"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.97"
+        tools:ignore="OnClick" />
+
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="505dp"
+        app:layout_constraintBottom_toTopOf="@+id/toolbarBottom3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottomAppBar3">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

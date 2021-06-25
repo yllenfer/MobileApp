@@ -14,4 +14,10 @@
 
 
     <string name="checkout">Check out</string>
+    <string name="empty_name">Please enter a valid name</string>
+    <string name="empty_lastName">Please enter a valid Last Name</string>
+    <string name="empty_email">Please enter a valid email</string>
+    <string name="empty_password">Please enter a valid password</string>
+    <string name="cart">CART</string>
+
 </resources>
