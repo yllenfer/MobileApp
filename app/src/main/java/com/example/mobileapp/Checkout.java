@@ -23,12 +23,22 @@ public class Checkout extends BaseActivity {
         setContentView(R.layout.activity_checkout);
         TCButton btn = findViewById(R.id.complete_order);
         ImageView img = findViewById(R.id.back_button);
+        ImageView shoppingCartImage = findViewById(R.id.shopping_cart_image);
+
+        shoppingCartImage.setOnClickListener(v -> {
+            startActivity(new Intent(Checkout.this, cartActivity.class));
+            finish();
+        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             //created function to have button validate Register Details
             @Override
             public void onClick(View v) {
-                validateRegisterDetails();
+                if (validateRegisterDetails()) {
+                    Intent intent = new Intent(Checkout.this, Overview.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
@@ -36,8 +46,9 @@ public class Checkout extends BaseActivity {
             //created function to have the imageView go back to desired activity
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Checkout.this, LogIn.class);
+                Intent intent = new Intent(Checkout.this, Purchase.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
