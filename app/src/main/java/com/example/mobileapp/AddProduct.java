@@ -11,14 +11,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mobileapp.firestore.FirestoreClass;
+import com.example.mobileapp.firestore.FirebaseClass;
 import com.example.mobileapp.models.ProductModel;
 import com.example.mobileapp.utils.Constants;
-
-import kotlin.collections.unsigned.UArraysKt;
 
 public class AddProduct extends AppCompatActivity {
 
@@ -46,8 +43,8 @@ public class AddProduct extends AppCompatActivity {
                     String description_p = description.getText().toString();
 
                     ProductModel productModel = new ProductModel(name_p, price_p, quantity_p, description_p);
-                    FirestoreClass firestoreClass = new FirestoreClass();
-                    firestoreClass.registerProduct(AddProduct.this, productModel);
+                    FirebaseClass firebaseClass = new FirebaseClass();
+                    firebaseClass.registerProduct(AddProduct.this, productModel);
 
                 } catch (Exception e) {
                     Toast.makeText(AddProduct.this, "process failed fill everything out", Toast.LENGTH_LONG).show();
@@ -69,7 +66,7 @@ public class AddProduct extends AppCompatActivity {
                             new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},
                             Constants.READ_STORAGE_PERMISSION_CODE
                     );
-                };
+                }
             }
         });
     }
