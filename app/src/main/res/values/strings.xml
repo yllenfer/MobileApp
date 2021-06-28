@@ -4,7 +4,7 @@
     <string name="skip"><u>Skip</u></string>
 
 
-<!--    checkout activity validation error strings-->
+    <!--    checkout activity validation error strings-->
     <string name="err_msg_enter_address">Please enter address</string>
     <string name="err_msg_enter_state">Please enter state</string>
     <string name="err_msg_enter_postal_code">Please enter postal code</string>

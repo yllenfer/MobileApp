@@ -90,7 +90,7 @@
         tools:ignore="VectorDrawableCompat" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buy_now_button"
         android:layout_width="141dp"
         android:layout_height="49dp"
         android:layout_marginStart="50dp"
@@ -104,7 +104,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/add_to_cart_button"
         android:layout_width="137dp"
         android:layout_height="51dp"
         android:layout_marginTop="500dp"
@@ -133,16 +133,23 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="30dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginRight="208dp"
         android:layout_marginBottom="100dp"
         android:gravity="center"
-        android:text="MacBook                                                         $2500    "
+        android:text="MacBook"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/product_price"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.505" />
 
     <TextView
         android:id="@+id/textView3"
@@ -218,7 +225,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/shopping_cart_image"
         android:layout_width="33dp"
         android:layout_height="31dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -260,12 +267,13 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarBottom"
-        android:text="PURCHASE"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="?actionBarSize"
         android:background="@drawable/ic_bottom_layer"
+        android:text="PURCHASE"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -294,5 +302,17 @@
         app:layout_constraintVertical_bias="0.97"
         app:srcCompat="@drawable/ic_baseline_account_circle_24"
         tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:text="$2500"
+        android:textColor="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
