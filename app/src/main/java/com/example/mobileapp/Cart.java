@@ -11,7 +11,7 @@ import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
 
-public class cartActivity extends AppCompatActivity {
+public class Cart extends AppCompatActivity {
 
     @Override
     @SuppressWarnings("DEPRECATION")
@@ -32,7 +32,7 @@ public class cartActivity extends AppCompatActivity {
     }
 
     public void goToCheckout(View view) {
-        Intent intent  = new Intent(cartActivity.this, Checkout.class);
+        Intent intent  = new Intent(Cart.this, Checkout.class);
         startActivity(intent);
         finish();
     }
