@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +29,7 @@ public class Product extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class Product extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        reference = firebaseDatabase.getReference("Data");
+        reference = firebaseDatabase.getReference("products");
 
 
 
@@ -53,13 +55,17 @@ public class Product extends AppCompatActivity {
         MyRecyclerViewAdapter  recyclerAdapter =
                 new MyRecyclerViewAdapter(this, new ArrayList<String>());
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
+
+
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+
                 Log.d("Product", (String) snapshot.getValue());
             }
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
 
             }
         });
