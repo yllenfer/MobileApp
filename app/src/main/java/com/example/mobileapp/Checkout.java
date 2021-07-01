@@ -22,7 +22,7 @@ public class Checkout extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
         TCButton btn = findViewById(R.id.complete_order);
-        ImageView img = findViewById(R.id.back_button);
+        View img = findViewById(R.id.back_button);
         ImageView shoppingCartImage = findViewById(R.id.shopping_cart_image);
 
         shoppingCartImage.setOnClickListener(v -> {
