@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/content_layout"
+    tools:context=".AddProduct">
+
+
+    <com.example.mobileapp.utils.TCEditText
+        android:id="@+id/p_name"
+        android:layout_width="281dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="48dp"
+        android:hint="product name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.mobileapp.utils.TCEditText
+        android:id="@+id/p_price"
+        android:layout_width="80dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:hint="price"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/p_quantity"
+        app:layout_constraintTop_toBottomOf="@+id/p_quantity" />
+
+    <com.example.mobileapp.utils.TCEditText
+        android:id="@+id/p_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:hint="quantity"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/p_name"
+        app:layout_constraintTop_toBottomOf="@+id/p_name" />
+
+    <com.example.mobileapp.utils.TCEditText
+        android:id="@+id/p_description"
+        android:layout_width="279dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:gravity="top|left"
+        android:hint="description"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:overScrollMode="always"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        app:layout_constraintStart_toStartOf="@+id/p_price"
+        app:layout_constraintTop_toBottomOf="@+id/p_price" />
+
+    <Button
+        android:id="@+id/buttonAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Add Product"
+        app:layout_constraintStart_toStartOf="@+id/p_description"
+        app:layout_constraintTop_toBottomOf="@+id/p_description" />
+
+    <ImageView
+        android:id="@+id/p_addImage"
+        android:layout_width="211dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/logo"
+        app:layout_constraintStart_toStartOf="@+id/buttonAddProduct"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddProduct" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
