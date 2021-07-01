@@ -1,6 +1,6 @@
 package com.example.mobileapp;
 
-import android.support.v7.widget.RecyclerView;
+
 
 public class Member {
 
