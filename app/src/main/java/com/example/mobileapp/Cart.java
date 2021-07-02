@@ -17,7 +17,7 @@ public class Cart extends AppCompatActivity {
     @SuppressWarnings("DEPRECATION")
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in);
+        setContentView(R.layout.activity_cart);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             final WindowInsetsController insetsController = getWindow().getInsetsController();
             if (insetsController != null) {

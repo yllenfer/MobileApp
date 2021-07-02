@@ -19,12 +19,12 @@ public class Purchase extends AppCompatActivity {
         ImageView shoppingCartImage = findViewById(R.id.shopping_cart_image);
 
         btnBuyNow.setOnClickListener(v -> {
-            startActivity(new Intent(Purchase.this, Checkout.class));
+            startActivity(new Intent(Purchase.this, Product.class));
             finish();
         });
 
         shoppingCartImage.setOnClickListener(v -> {
-            startActivity(new Intent(Purchase.this, cartActivity.class));
+            startActivity(new Intent(Purchase.this, Cart.class));
             finish();
         });
 

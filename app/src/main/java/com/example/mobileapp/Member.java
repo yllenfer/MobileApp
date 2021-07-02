@@ -1,15 +1,40 @@
 package com.example.mobileapp;
 
-
-
 public class Member {
 
-    public String getImage() {
-        return image;
+    String product_name, price, description, quantity;
+
+    public Member(String name, String price, String description, String quantity) {
+        this.product_name = name;
+        this.price = price;
+        this.description = description;
+        this.quantity = quantity;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public Member() {
+
+
+    }
+
+
+
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
+
+
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getDescription() {
@@ -20,20 +45,15 @@ public class Member {
         this.description = description;
     }
 
-    public String getTitle() {
-        return title;
+
+
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
-    String image, description, title;
 
-
-    public Member(){
-
-
-
-    }
 }

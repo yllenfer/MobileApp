@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.mobileapp.firestore.FirebaseClass;
 import com.example.mobileapp.models.ProductModel;
 import com.example.mobileapp.utils.Constants;
 

@@ -1,12 +1,15 @@
 package com.example.mobileapp.firestore;
 
 
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.example.mobileapp.AddProduct;
+import com.example.mobileapp.Product;
 import com.example.mobileapp.models.ProductModel;
+import com.example.mobileapp.utils.Constants;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,6 +18,8 @@ import com.google.firebase.database.ValueEventListener;
 
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 
 public class FirebaseClass {
@@ -58,8 +63,43 @@ public class FirebaseClass {
 //                        Toast.makeText(addProduct, "process failed", Toast.LENGTH_LONG).show();
 //                    }
 //                });
-
     }
 
+       public void uploadProductDetails(AddProduct addProduct, Product product) {
 
-}
+
+
+
+        }
+
+
+//        public void getProductList(FirebaseClass firebaseClass){
+//
+//        DatabaseReference db = null;
+//        db.child(Constants.PRODUCTS)
+//                .equals(Constants.USER_ID, getCurrentID())
+//                .get();
+//                .addOnSuccessListener{ document -> Log.e("Product List", document.toString();
+//                ArrayList<String> Products = new ArrayList<String>();
+//
+//                for(String i : document.documents){
+//                    String product = i.toObject()(Product:: class.java)
+//                    product!!.Constants.product_id = i.id
+//
+//                            productList.append(product);
+//                }
+
+//            }
+
+        }
+
+
+
+
+//}
+
+
+
+
+
+
