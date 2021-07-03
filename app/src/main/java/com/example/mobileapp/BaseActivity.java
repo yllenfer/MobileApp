@@ -40,4 +40,7 @@ public class BaseActivity extends AppCompatActivity {
         }
         snackbar.show();
     }
+
+
+
 }

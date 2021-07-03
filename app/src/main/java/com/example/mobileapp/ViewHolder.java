@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -27,13 +26,13 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 
     public void setDetails(Context context, String title, String description, String image){
 
-        TextView mTitleTv =  view.findViewById(R.id.rTitleView);
-        TextView mDescription = view.findViewById(R.id.rDescriptionView);
-        ImageView mImagetv = view.findViewById(R.id.rImageView);
+//        TextView mTitleTv =  view.findViewById(R.id.rTitleView);
+//        TextView mDescription = view.findViewById(R.id.rDescriptionView);
+//        ImageView mImagetv = view.findViewById(R.id.rImageView);
+//
+//        mTitleTv.setText(title);
+//        mDescription.setText(description);
 
-        mTitleTv.setText(title);
-        mDescription.setText(description);
-        Picasso.get().load(image).into(mImagetv);
 
 
 
