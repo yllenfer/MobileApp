@@ -13,5 +13,7 @@ public final class Constants {
     static final String IMAGE = "image";
     static final String USER_PROFILE_IMAGE = "user_image";
 
+    static final String ADDRESSES = "address";
+
 
 }

@@ -94,7 +94,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCheckout">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCheckout"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -124,9 +125,9 @@
                 android:layout_marginTop="11dp"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:textColor="#FFFFFF"
                 android:hint="Postal Code"
                 android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
                 android:textColorHint="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/inputState"
                 app:layout_constraintTop_toBottomOf="@+id/inputState" />
@@ -152,8 +153,8 @@
                 android:backgroundTint="@color/white"
                 android:ems="10"
                 android:hint="State"
-                android:textColor="#FFFFFF"
                 android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
                 android:textColorHint="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/inputAddress"
                 app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
@@ -180,7 +181,7 @@
                 android:backgroundTint="@color/white"
                 android:ems="10"
                 android:hint="Card Number"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:textColor="#FFFFFF"
                 android:textColorHint="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -195,8 +196,8 @@
                 android:backgroundTint="@color/white"
                 android:ems="10"
                 android:hint="CCV"
+                android:inputType="number"
                 android:textColor="#FFFFFF"
-                android:inputType="textPersonName"
                 android:textColorHint="@color/white"
                 app:layout_constraintBaseline_toBaselineOf="@+id/inputEpiryDate"
                 app:layout_constraintEnd_toStartOf="@+id/guideline3" />
@@ -208,9 +209,9 @@
                 android:layout_marginTop="12dp"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:textColor="#FFFFFF"
                 android:hint="MM/YY"
-                android:inputType="textPersonName"
+                android:inputType="number"
+                android:textColor="#FFFFFF"
                 android:textColorHint="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/inputCardNumber"
                 app:layout_constraintTop_toBottomOf="@+id/inputCardNumber" />

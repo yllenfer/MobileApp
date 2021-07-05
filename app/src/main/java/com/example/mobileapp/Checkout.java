@@ -1,17 +1,15 @@
 package com.example.mobileapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.Switch;
 
+
+import com.example.mobileapp.firestore.FirebaseClass;
+import com.example.mobileapp.models.AddressModel;
 import com.example.mobileapp.utils.TCButton;
 
 public class Checkout extends BaseActivity {
@@ -21,8 +19,8 @@ public class Checkout extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
-        TCButton btn = findViewById(R.id.complete_order);
-        View img = findViewById(R.id.back_button);
+        TCButton completeOrderBtn = findViewById(R.id.complete_order);
+        View backButton = findViewById(R.id.back_button);
         ImageView shoppingCartImage = findViewById(R.id.shopping_cart_image);
 
         shoppingCartImage.setOnClickListener(v -> {
@@ -30,19 +28,20 @@ public class Checkout extends BaseActivity {
             finish();
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        completeOrderBtn.setOnClickListener(new View.OnClickListener() {
             //created function to have button validate Register Details
             @Override
             public void onClick(View v) {
+
                 if (validateRegisterDetails()) {
+                    saveAddressToFirebase();
                     Intent intent = new Intent(Checkout.this, Overview.class);
                     startActivity(intent);
-                    finish();
                 }
             }
         });
 
-        img.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             //created function to have the imageView go back to desired activity
             @Override
             public void onClick(View v) {
@@ -90,19 +89,22 @@ public class Checkout extends BaseActivity {
         }
 
     }
+
+    private void saveAddressToFirebase() {
+        EditText address = findViewById(R.id.inputAddress);
+        EditText state = findViewById(R.id.inputState);
+        EditText postalCode = findViewById(R.id.inputPostalCode);
+
+        AddressModel addressClass = new AddressModel(FirebaseClass.getUserID(),
+                address.getText().toString(),
+                state.getText().toString(),
+                postalCode.getText().toString());
+
+        FirebaseClass.addAddress(Checkout.this, addressClass);
+
+    }
+
+
+
 }
 
-
-//    public void onRadioButtonClicked(View view) {
-//        boolean checked = ((RadioButton) view).isChecked();
-//
-//        switch(view.getId()) {
-//            case R.id.visa:
-//                if (checked)
-//                    break;
-//            case R.id.paypal:
-//                if (checked)
-//                    break;
-//
-//        }
-//    }
