@@ -9,71 +9,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApp">
-        <activity android:name=".Splash"
+        <activity
+            android:name=".Profile"
+            android:theme="@style/Theme.MobileApp.NoActionBar"></activity>
+
+        <activity
+            android:name=".Splash"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-            >
-
-        </activity>
-        <activity android:name=".LogIn"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-
-
-            >
-
-
-
-
-
-
-        </activity>
-        <activity android:name=".Register"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-            />
-        <activity android:name=".Purchase"/>
-        <activity android:name=".Checkout"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-            >
-
-
-
-
-        </activity>
-        <activity android:name=".Overview"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-            />
-        <activity android:name=".MainActivity">
-
-
-
-
-        </activity>
-
-
-        <activity android:name=".Product"
-            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar"></activity>
+        <activity
+            android:name=".LogIn"
             android:theme="@style/Theme.MobileApp.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
-
         </activity>
-
-        <activity android:name=".Cart"
+        <activity
+            android:name=".Register"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar" />
+        <activity android:name=".Purchase" />
+        <activity
+            android:name=".Checkout"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar"></activity>
+        <activity
+            android:name=".Overview"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar" />
+        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".Product"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MobileApp.NoActionBar">
-
-
-
-    </activity>
+        </activity>
+        <activity
+            android:name=".Cart"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar"></activity>
     </application>
 
 </manifest>
