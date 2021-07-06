@@ -17,14 +17,12 @@
         </activity>
         <activity android:name=".LogIn"
             android:theme="@style/Theme.MobileApp.NoActionBar"
-
-
             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
-
-
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
         </activity>
@@ -39,8 +37,6 @@
             >
 
 
-
-
         </activity>
         <activity android:name=".Overview"
             android:screenOrientation="portrait"
@@ -49,33 +45,23 @@
         <activity android:name=".MainActivity">
 
 
-
-
         </activity>
 
 
-        <activity android:name=".Product"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar">
+<!--        <activity android:name=".Product"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:theme="@style/Theme.MobileApp.NoActionBar">-->
 
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--           -->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
-
-        </activity>
+<!--        </activity>-->
 
         <activity android:name=".Cart"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MobileApp.NoActionBar">
 
-
-
-    </activity>
+        </activity>
     </application>
 
 </manifest>

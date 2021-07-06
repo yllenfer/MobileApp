@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -27,10 +28,8 @@ import java.util.List;
 
 public class HomeFragment<QuerySnapshot> extends Fragment {
 
-
-
     RecyclerView memberProduct;
-    FirebaseDatabase db;
+    DatabaseReference db;
 
     List<Member> memberList;
     Product product;
@@ -40,7 +39,7 @@ public class HomeFragment<QuerySnapshot> extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        db = FirebaseDatabase.getInstance();
+        db = FirebaseDatabase.getInstance().getReference();
 
         memberProduct = root.findViewById(R.id.recyclerView);
         memberProduct.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
@@ -57,13 +56,13 @@ public class HomeFragment<QuerySnapshot> extends Fragment {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
+                Log.d("success", "Value is: " + value);
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
+                Log.w("error", "Failed to read value.", error.toException());
             }
         });
 
