@@ -8,12 +8,14 @@ import androidx.annotation.NonNull;
 
 import com.example.mobileapp.AddProduct;
 import com.example.mobileapp.Checkout;
-import com.example.mobileapp.Product;
+import com.example.mobileapp.Overview;
+
 import com.example.mobileapp.models.AddressModel;
 import com.example.mobileapp.models.ProductModel;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +25,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,8 +62,25 @@ public class FirebaseClass {
 
     }
 
-    public void uploadProductDetails(AddProduct addProduct, Product product) {
+    public static void getAddress(Overview overview) {
+        db = FirebaseDatabase.getInstance().getReference("Users/" + getUserID());
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String, String> addressList = new HashMap<>();
+                addressList.put("address", dataSnapshot.child("address").getValue().toString());
+                addressList.put("postalCode", dataSnapshot.child("postalCode").getValue().toString());
+                addressList.put("state", dataSnapshot.child("state").getValue().toString());
 
+                overview.setAddressList(addressList);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     public static String getUserID() {
