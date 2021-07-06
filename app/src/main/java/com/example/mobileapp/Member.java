@@ -2,13 +2,22 @@ package com.example.mobileapp;
 
 public class Member {
 
-    String product_name, price, description, quantity;
+    String product_name;
+    String price;
+    String description;
+    String quantity;
+    String image;
 
-    public Member(String name, String price, String description, String quantity) {
+
+
+
+    public Member(String name, String price, String description, String quantity, String image) {
         this.product_name = name;
         this.price = price;
         this.description = description;
         this.quantity = quantity;
+        this.image = image;
+
     }
 
     public Member() {
@@ -25,7 +34,6 @@ public class Member {
     public void setProduct_name(String product_name) {
         this.product_name = product_name;
     }
-
 
 
 
@@ -53,6 +61,15 @@ public class Member {
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
+    }
+
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
 

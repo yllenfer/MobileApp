@@ -62,7 +62,7 @@ public class LogIn extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(LogIn.this, "Welcome " + email, Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LogIn.this, MainActivity.class));
+                        startActivity(new Intent(LogIn.this, Product.class));
                         finish();
                     } else {
                         Toast.makeText(LogIn.this, "Incorrect password or email.", Toast.LENGTH_SHORT).show();
