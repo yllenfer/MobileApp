@@ -207,4 +207,66 @@
         app:srcCompat="@drawable/ic_baseline_account_circle_24"
         android:src="@drawable/ic_baseline_account_circle_24"/>
 
+    <ImageView
+        android:id="@+id/addPhone"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="108dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_baseline_done_24" />
+
+    <ImageView
+        android:id="@+id/addAge"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_done_24" />
+
+    <com.example.mobileapp.utils.TCToolbarTitle
+        android:id="@+id/addAgeField"
+        android:layout_width="314dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="New age"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/profile_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toEndOf="@+id/profile_img"
+        app:layout_constraintTop_toBottomOf="@+id/profile_email" />
+
+    <com.example.mobileapp.utils.TCToolbarTitle
+        android:id="@+id/addPhoneField"
+        android:layout_width="314dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="110dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="New Phone Number"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintStart_toEndOf="@+id/profile_img"
+        app:layout_constraintTop_toBottomOf="@+id/profile_age"
+        app:layout_constraintVertical_bias="0.79" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

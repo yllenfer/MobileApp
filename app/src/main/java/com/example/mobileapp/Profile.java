@@ -46,7 +46,7 @@ public class Profile extends AppCompatActivity {
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
                 if (userProfile != null) {
-                    nameTV.setText(userProfile.name + " " + userProfile.lastName);
+                    nameTV.setText(userProfile.name);
                     emailTV.setText(userProfile.email);
                 } else {
                     Toast.makeText(Profile.this, "Empty", Toast.LENGTH_SHORT).show();
@@ -59,4 +59,21 @@ public class Profile extends AppCompatActivity {
             }
         });
     }
+    /*
+    imgView .setVisibility(View.VISIBLE);
+    imgView .setVisibility(View.INVISIBLE);
+    imgView .setVisibility(View.GONE);
+
+            Button btn = (Button) findViewById(R.id.push_button);
+        btn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                TextView tv = (TextView) findViewById(R.id.text_view);
+                Button btn = (Button) findViewById(R.id.push_button);
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,50);
+                btn.setTextColor(Color.RED);
+            }
+        });
+    */
 }
