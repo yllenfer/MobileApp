@@ -118,8 +118,6 @@ public class FirebaseClass {
                 Member member = snapshot.getValue(Member.class);
                 purchase.addProductsToView(member);
 
-
-
             }
 
             @Override
