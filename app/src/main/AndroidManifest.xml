@@ -13,11 +13,7 @@
         <activity android:name=".LogIn"
             android:theme="@style/Theme.MobileApp.NoActionBar"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity
@@ -33,7 +29,19 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MobileApp.NoActionBar"
             />
-        <activity android:name=".Purchase"/>
+        <activity android:name=".Purchase"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+
         <activity android:name=".Checkout"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MobileApp.NoActionBar"

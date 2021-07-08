@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,6 +55,16 @@ public class Product extends RecyclerView.Adapter <Product.ViewHolder> {
         holder.description.setText(memberList.get(position).getDescription());
         holder.price.setText(memberList.get(position).getPrice());
         holder.quantity.setText(memberList.get(position).getQuantity());
+
+        //pass product id for the purchase class to grab individual products
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Purchase.class);
+                intent.putExtra("product_id", memberList.get(position).productId);
+                context.startActivity(intent);
+            }
+        });
 
 
 

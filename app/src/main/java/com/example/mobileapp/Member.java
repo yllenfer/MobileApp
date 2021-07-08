@@ -7,9 +7,24 @@ public class Member {
     String description;
     String quantity;
     String image;
+    String productId;
 
+    public String getProductId() {
+        return productId;
+    }
 
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
 
+    public Member(String product_name, String price, String description, String quantity, String image, String productId) {
+        this.product_name = product_name;
+        this.price = price;
+        this.description = description;
+        this.quantity = quantity;
+        this.image = image;
+        this.productId = productId;
+    }
 
     public Member(String name, String price, String description, String quantity, String image) {
         this.product_name = name;

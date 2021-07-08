@@ -7,9 +7,6 @@ public final class Constants {
     public static final String PRODUCTS = "products";
     public static final String USER_ID = "user_id" ;
 
-
-
-
     static final String IMAGE = "image";
     static final String USER_PROFILE_IMAGE = "user_image";
 

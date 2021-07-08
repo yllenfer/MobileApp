@@ -5,12 +5,16 @@ package com.example.mobileapp.firestore;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.example.mobileapp.AddProduct;
 import com.example.mobileapp.Checkout;
+import com.example.mobileapp.Member;
 import com.example.mobileapp.Overview;
 
+import com.example.mobileapp.Purchase;
 import com.example.mobileapp.models.AddressModel;
+import com.example.mobileapp.models.CommentModel;
 import com.example.mobileapp.models.ProductModel;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -67,6 +71,7 @@ public class FirebaseClass {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 Map<String, String> addressList = new HashMap<>();
                 addressList.put("address", dataSnapshot.child("address").getValue().toString());
                 addressList.put("postalCode", dataSnapshot.child("postalCode").getValue().toString());
@@ -91,6 +96,39 @@ public class FirebaseClass {
         userID = user.getUid();
 
         return userID;
+
+    }
+
+    public static void addMessage(Purchase purchase, CommentModel commentModel) {
+        db = FirebaseDatabase.getInstance().getReference().child("notifications").push();
+        String message = commentModel.getMessage();
+        db.child("message").setValue(message);
+
+        Toast.makeText(purchase, "message sent", Toast.LENGTH_LONG).show();
+
+    }
+
+
+    public static void getProductDetails(Purchase purchase, String productID) {
+        db = FirebaseDatabase.getInstance().getReference("products").child(productID);
+
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                Member member = snapshot.getValue(Member.class);
+                purchase.addProductsToView(member);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+
+
 
     }
 
