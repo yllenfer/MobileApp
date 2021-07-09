@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mobileapp">
 
     <application
@@ -13,6 +14,8 @@
         <activity android:name=".LogIn"
             android:theme="@style/Theme.MobileApp.NoActionBar"
             >
+
+
 
 
         </activity>
@@ -29,19 +32,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MobileApp.NoActionBar"
             />
-        <activity android:name=".Purchase"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-
-
+        <activity android:name=".Purchase"/>
         <activity android:name=".Checkout"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MobileApp.NoActionBar"
@@ -59,20 +50,27 @@
         </activity>
 
 
-<!--        <activity android:name=".Product"-->
-<!--            android:screenOrientation="portrait"-->
-<!--            android:theme="@style/Theme.MobileApp.NoActionBar">-->
 
 
-<!--           -->
-
-<!--        </activity>-->
-
-        <activity android:name=".Cart"
+        <activity android:name=".CartFragment"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar">
+            android:theme="@style/Theme.MobileApp.NoActionBar"
+            tools:ignore="Instantiatable">
 
         </activity>
+
+
+
+
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
     </application>
 
 </manifest>

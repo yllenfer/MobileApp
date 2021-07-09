@@ -1,2 +1,4 @@
 rootProject.name = "Mobile App"
 include ':app'
+include ':mylibrary'
+include ':app', ':libzerokeylocationservice'

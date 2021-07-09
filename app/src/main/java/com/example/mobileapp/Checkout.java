@@ -24,7 +24,7 @@ public class Checkout extends BaseActivity {
         ImageView shoppingCartImage = findViewById(R.id.shopping_cart_image);
 
         shoppingCartImage.setOnClickListener(v -> {
-            startActivity(new Intent(Checkout.this, Cart.class));
+            startActivity(new Intent(Checkout.this, CartFragment.class));
             finish();
         });
 
