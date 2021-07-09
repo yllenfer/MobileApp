@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mobileapp.firestore.FirebaseClass;
-import com.example.mobileapp.models.ProductModel;
+import com.example.mobileapp.models.SecondProductClass;
 import com.example.mobileapp.utils.Constants;
 
 public class AddProduct extends AppCompatActivity {
@@ -42,9 +42,9 @@ public class AddProduct extends AppCompatActivity {
                     int quantity_p = Integer.parseInt(quantity.getText().toString());
                     String description_p = description.getText().toString();
 
-                    ProductModel productModel = new ProductModel(name_p, price_p, quantity_p, description_p);
+                    SecondProductClass secondProductClass = new SecondProductClass(name_p, price_p, quantity_p, description_p);
                     FirebaseClass firebaseClass = new FirebaseClass();
-                    firebaseClass.registerProduct(AddProduct.this, productModel);
+                    firebaseClass.registerProduct(AddProduct.this, secondProductClass);
 
                 } catch (Exception e) {
                     Toast.makeText(AddProduct.this, "process failed fill everything out", Toast.LENGTH_LONG).show();

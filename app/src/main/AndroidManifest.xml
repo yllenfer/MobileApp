@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mobileapp">
 
+
     <application
+
+        tools:ignore="LockedOrientationActivity"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,64 +14,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApp">
 
-        <activity android:name=".LogIn"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-            >
-
-
+        <activity
+            android:name=".LogIn"
+            android:theme="@style/Theme.MobileApp.NoActionBar">
 
 
         </activity>
         <activity
             android:name=".Profile"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-            >
-        </activity>
+            android:theme="@style/Theme.MobileApp.NoActionBar" />
 
-        <activity android:name=".Splash"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar"/>
-        <activity android:name=".Register"
+        <activity
+            android:name=".Splash"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MobileApp.NoActionBar"
-            />
-        <activity android:name=".Purchase"/>
-        <activity android:name=".Checkout"
+             />
+        <activity
+            android:name=".Register"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-            >
-
-
-        </activity>
-        <activity android:name=".Overview"
+            android:theme="@style/Theme.MobileApp.NoActionBar" />
+        <activity android:name=".Purchase" />
+        <activity
+            android:name=".Checkout"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar"
-            />
-        <activity android:name=".MainActivity">
-
+            android:theme="@style/Theme.MobileApp.NoActionBar">
 
         </activity>
+        <activity
+            android:name=".Overview"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar" />
+        <activity android:name=".MainActivity"/>
 
-
-
-
-        <activity android:name=".CartFragment"
+        <activity
+            android:name=".CartFragment"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MobileApp.NoActionBar"
             tools:ignore="Instantiatable">
-
-        </activity>
-
-
-
-
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
 
 
     </application>
