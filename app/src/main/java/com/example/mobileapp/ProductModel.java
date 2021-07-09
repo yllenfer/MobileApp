@@ -1,11 +1,11 @@
 package com.example.mobileapp;
 
-public class Member {
+public class ProductModel {
 
     String product_name;
-    String price;
+    Long price;
     String description;
-    String quantity;
+    Long quantity;
     String image;
     String productId;
 
@@ -26,7 +26,7 @@ public class Member {
         this.productId = productId;
     }
 
-    public Member(String name, String price, String description, String quantity, String image) {
+    public ProductModel(String name, Long price, String description, Long quantity, String image) {
         this.product_name = name;
         this.price = price;
         this.description = description;
@@ -35,7 +35,7 @@ public class Member {
 
     }
 
-    public Member() {
+    public ProductModel() {
 
 
     }
@@ -52,11 +52,11 @@ public class Member {
 
 
 
-    public String getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
@@ -70,11 +70,11 @@ public class Member {
 
 
 
-    public String getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 

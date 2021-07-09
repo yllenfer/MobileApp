@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mobileapp">
 
     <application
@@ -36,8 +37,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
         </activity>
 
@@ -59,20 +59,42 @@
         </activity>
 
 
-<!--        <activity android:name=".Product"-->
-<!--            android:screenOrientation="portrait"-->
-<!--            android:theme="@style/Theme.MobileApp.NoActionBar">-->
 
 
-<!--           -->
 
-<!--        </activity>-->
-
-        <activity android:name=".Cart"
+        <activity android:name=".CartFragment"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MobileApp.NoActionBar">
+            android:theme="@style/Theme.MobileApp.NoActionBar"
+            tools:ignore="Instantiatable">
 
         </activity>
+
+
+
+        <activity android:name=".Product"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar"
+            tools:ignore="Instantiatable">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+
+
+        </activity>
+
+
+
+
+
+
+
+
+
     </application>
 
 </manifest>

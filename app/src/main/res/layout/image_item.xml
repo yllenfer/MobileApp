@@ -10,47 +10,61 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/grey"
+   >
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="280dp"
-        android:layout_height="190dp"
         android:id="@+id/roundedImage"
-        app:riv_corner_radius="14dp"
+        android:layout_width="400dp"
+        android:layout_height="263dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo"
+        app:riv_corner_radius="14dp"
+
+        />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Title/productname"
-            android:id="@+id/title"/>
-
-
-
-
-
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title/productname"
+        android:textColor="@color/erin"
+        android:textSize="32dp"
+        android:layout_marginLeft="100dp"/>
 
     <TextView
         android:id="@+id/p_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="howare you" />
+        android:text="howare you"
+        android:textColor="@color/erin"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+
+        />
 
 
     <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hthis is price" />
+        android:text="hthis is price"
+        android:textColor="@color/erin"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"/>
 
 
     <TextView
         android:id="@+id/quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hthis is quantity" />
+        android:text="hthis is quantity"
+        android:textColor="@color/erin"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        />
 
 </LinearLayout>
 </androidx.cardview.widget.CardView>
