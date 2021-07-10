@@ -66,6 +66,14 @@
         android:layout_marginLeft="20dp"
         />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Button"
+        android:layout_marginLeft="160dp"
+        />
+
 </LinearLayout>
 </androidx.cardview.widget.CardView>
 
