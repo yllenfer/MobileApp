@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="15dp">
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/grey"
+        >
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/roundedImage"
+        android:layout_width="257dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:riv_corner_radius="14dp"
+        android:layout_marginLeft="60dp"
+
+
+        />
+
+
+
+
+
+        <TextView
+            android:id="@+id/carttitle"
+            android:layout_width="214dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="100dp"
+            android:text="Title/productname"
+            android:textColor="@color/erin"
+            android:textSize="50dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:text="hthis is price"
+            android:textColor="@color/erin"
+            android:textSize="30dp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/delete"
+            android:src="@drawable/ic_baseline_delete_24"
+            android:layout_marginLeft="330dp"/>
+
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

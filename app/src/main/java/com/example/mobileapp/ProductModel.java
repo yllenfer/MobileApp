@@ -8,30 +8,31 @@ public class ProductModel {
     Long quantity;
     String image;
     String productId;
+    Boolean cart;
+    String id;
 
-    public String getProductId() {
-        return productId;
-    }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
 
-    public ProductModel(String product_name, Long price, String description, Long quantity, String image, String productId) {
+
+
+    public ProductModel(String product_name, Long price, String description, Long quantity, String image, Boolean cart, String productId, String id) {
         this.product_name = product_name;
         this.price = price;
         this.description = description;
         this.quantity = quantity;
         this.image = image;
         this.productId = productId;
+        this.cart = cart;
+        this.id = id;
     }
 
-    public ProductModel(String name, Long price, String description, Long quantity, String image) {
+    public ProductModel(String name, Long price, String description, Long quantity, String image, Boolean cart) {
         this.product_name = name;
         this.price = price;
         this.description = description;
         this.quantity = quantity;
         this.image = image;
+        this.cart = cart;
 
     }
 
@@ -69,6 +70,15 @@ public class ProductModel {
     }
 
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
 
     public Long getQuantity() {
         return quantity;
@@ -85,6 +95,14 @@ public class ProductModel {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Boolean getCart() {
+        return cart;
+    }
+
+    public void setCart(Boolean cart) {
+        this.cart = cart;
     }
 
 

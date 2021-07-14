@@ -8,7 +8,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_color"
-    tools:context=".Product">
+    tools:context=".Cart">
+
 
 
 
@@ -34,7 +35,8 @@
             android:paddingTop="20dp"
             android:paddingEnd="0dp"
             android:paddingRight="0dp"
-            android:text="@string/product"
+            android:text="@string/cart"
+            android:onClick="goToCheckOut"
             android:textColor="@color/white"
             android:textSize="@dimen/title_size_toolbar" />
 
@@ -46,12 +48,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:onClick="goToCart"
         app:layout_constraintBottom_toBottomOf="@+id/toolbarCheckout"
         app:layout_constraintEnd_toEndOf="@+id/toolbarCheckout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+        app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
+        tools:ignore="VectorDrawableCompat" />
 
     <ImageView
         android:id="@+id/back_button"
@@ -80,15 +84,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="381dp"
-        android:layout_height="615dp"
+        android:layout_width="392dp"
+        android:layout_height="563dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <ImageView
         android:id="@+id/notification"
@@ -109,7 +113,6 @@
         android:layout_height="32dp"
         android:layout_marginBottom="12dp"
         android:clickable="true"
-        android:onClick="goToProfile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.924"
@@ -117,6 +120,21 @@
         app:srcCompat="@drawable/ic_baseline_account_circle_24"
         tools:ignore="VectorDrawableCompat" />
 
+    <Button
+        android:id="@+id/total_price"
+        android:layout_width="189dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="76dp"
+        android:text="Total Price"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@drawable/btn_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 
