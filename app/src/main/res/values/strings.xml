@@ -23,6 +23,8 @@
     <string name="product_name">Product Name</string>
     <string name="search">SEARCH</string>
     <string name="product">PRODUCT</string>
+    <string name="purchase">PURCHASE</string>
+    <string name="addtocart">ADD TO CART</string>
 
 
 <!--    Notification fragment activity -->

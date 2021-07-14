@@ -8,16 +8,16 @@
 
 
 <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/grey"
    >
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedImage"
-        android:layout_width="400dp"
-        android:layout_height="263dp"
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
         android:scaleType="centerCrop"
         android:src="@drawable/logo"
         app:riv_corner_radius="14dp"
@@ -27,21 +27,21 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="100dp"
         android:text="Title/productname"
         android:textColor="@color/erin"
-        android:textSize="32dp"
-        android:layout_marginLeft="100dp"/>
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/p_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="92dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
         android:text="howare you"
         android:textColor="@color/erin"
         android:textSize="20dp"
-        android:layout_marginLeft="20dp"
 
         />
 
@@ -49,30 +49,29 @@
     <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
         android:text="hthis is price"
         android:textColor="@color/erin"
-        android:textSize="20dp"
-        android:layout_marginLeft="20dp"/>
+        android:textSize="20dp" />
 
 
     <TextView
         android:id="@+id/quantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="121dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
         android:text="hthis is quantity"
         android:textColor="@color/erin"
-        android:textSize="20dp"
-        android:layout_marginLeft="20dp"
-        />
+        android:textSize="20dp" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Button"
-        android:layout_marginLeft="160dp"
+        android:id="@+id/addtocart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/addtocart"
         />
+
 
 </LinearLayout>
 </androidx.cardview.widget.CardView>

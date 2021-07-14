@@ -1,10 +1,12 @@
 package com.example.mobileapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,15 +33,22 @@ public class Product extends AppCompatActivity {
     List<ProductModel> productModelList;
     ProductAdapter productAdapter;
     DatabaseReference db;
-    private int value;
+    FirebaseUser user;
+
+
+
+
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
       setContentView(R.layout.fragment_home);
       db = FirebaseDatabase.getInstance().getReference().child("products");
+//      Button bnt = findViewById(R.id.addtocart);
 
         productRecycler = findViewById(R.id.recyclerView);
         productRecycler.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL, false));
@@ -56,6 +67,8 @@ public class Product extends AppCompatActivity {
 
                 for (DataSnapshot child: dataSnapshot.getChildren()) {
                     ProductModel productModel = child.getValue(ProductModel.class);
+                    //This line will go in cart class
+//                    if (productModel.cart)
                     productModelList.add(productModel);
                 }
 
@@ -75,7 +88,33 @@ public class Product extends AppCompatActivity {
 
 
 
+//     bnt.setOnClickListener(new View.OnClickListener() {
+//
+//         @Override
+//         public void onClick(View v) {
+//
+//
+//         }
+//     });
+
+
+
     }
+
+
+    public void goToCart(View view) {
+        Intent intent  = new Intent(Product.this, Cart.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void goToProfile(View view) {
+        Intent intent  = new Intent(Product.this, Overview.class);
+        startActivity(intent);
+        finish();
+    }
+
 
 
 

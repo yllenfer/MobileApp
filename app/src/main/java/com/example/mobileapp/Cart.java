@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,50 +30,62 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartFragment extends Fragment {
+public class Cart extends AppCompatActivity {
 
 
     DatabaseReference db;
     FirebaseAuth auth;
-
+    TextView cartTitle;
     RecyclerView recyclerView;
     CartAdapter cartAdapter;
     List<CartModel> cartModelList;
 
-    public CartFragment() {
+    public Cart() {
 
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState
-    ) {
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+    protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState){
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.cart_fragment);
 
 
         db = FirebaseDatabase.getInstance().getReference().child("products");
         auth = FirebaseAuth.getInstance();
-        recyclerView = root.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         cartModelList = new ArrayList<>();
-        cartAdapter = new CartAdapter(getActivity(), cartModelList);
-//        recyclerView.setAdapter(cartAdapter);
+        cartAdapter = new CartAdapter(this,cartModelList);
+        recyclerView.setAdapter(cartAdapter);
+
 
 
         // Read from the database
         Query myRef = null;
-        myRef.addValueEventListener(new ValueEventListener() {
+        db.addValueEventListener(new ValueEventListener() {
             private static final String TAG = "";
 
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
+            public void onDataChange(DataSnapshot dataSnapshot ) {
+                cartModelList.clear();
+
+
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                     CartModel cartModel = child.getValue(CartModel.class);
+
+                    //This line will go in cart class
+                    if (cartModel.cart)
+                        cartModelList.add(cartModel);
+//                    Toast.makeText(Cart.this, "Product has been added", Toast.LENGTH_SHORT).show();
+
+                }
+
+                cartAdapter = new CartAdapter(getBaseContext(), cartModelList);
+                recyclerView.setAdapter(cartAdapter);
+
+
             }
 
             @Override
@@ -82,9 +96,16 @@ public class CartFragment extends Fragment {
         });
 
 
-      return root;
 
     }
+
+
+    public void goToCart(View view) {
+        Intent intent  = new Intent(Cart.this, Profile.class);
+        startActivity(intent);
+        finish();
+    }
+
 
 
 }
