@@ -35,6 +35,7 @@ public class Checkout extends BaseActivity {
 
                 if (validateRegisterDetails()) {
                     saveAddressToFirebase();
+
                     Intent intent = new Intent(Checkout.this, Overview.class);
                     startActivity(intent);
                 }
