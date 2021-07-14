@@ -1,10 +1,12 @@
 package com.example.mobileapp;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,10 +51,33 @@ public class CartAdapter extends RecyclerView.Adapter <CartAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull @NotNull CartAdapter.ViewHolder holder, int position) {
         Glide.with(context).load(cartModelList.get(position).getImage()).into(holder.image);
         holder.name.setText(cartModelList.get(position).getProduct_name());
-        holder.price.setText(cartModelList.get(position).getPrice().toString());
+        holder.price.setText("$" + cartModelList.get(position).getPrice().toString());
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                //same if I want to erase products set it to false
+                for(int i = cartModelList.size()-1; i >= 0; i--) {
+                    if(cartModelList.get(i).selected) {
+                        cartModelList.remove(i);
+                    }
+                }
+                notifyDataSetChanged();
+
+            }
+
+
+        });
+
+
+//        totalPrice = totalPrice + cartModelList.get(position).getTotalPrice();
+//        Intent intent = new Intent("MytotalAmount");
+//        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 
 
     }
+
 
 
 
@@ -68,6 +93,7 @@ public class CartAdapter extends RecyclerView.Adapter <CartAdapter.ViewHolder>{
         ImageView image;
         TextView price;
         TextView name;
+        ImageView delete;
 
 
 
@@ -78,6 +104,7 @@ public class CartAdapter extends RecyclerView.Adapter <CartAdapter.ViewHolder>{
             image =itemView.findViewById(R.id.roundedImage);
             price = itemView.findViewById(R.id.price);
             name = itemView.findViewById(R.id.carttitle);
+            delete = itemView.findViewById(R.id.delete);
 
 
 

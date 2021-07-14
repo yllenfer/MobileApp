@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
@@ -47,9 +48,9 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.ViewHol
     public void onBindViewHolder(@NonNull @NotNull ProductAdapter.ViewHolder holder, int position) {
         Glide.with(context).load(productModelList.get(position).getImage()).into(holder.image);
         holder.name.setText(productModelList.get(position).getProduct_name());
-        holder.description.setText(productModelList.get(position).getDescription());
-        holder.price.setText(productModelList.get(position).getPrice().toString());
-        holder.quantity.setText(productModelList.get(position).getQuantity().toString());
+        holder.description.setText("Description: " + productModelList.get(position).getDescription());
+        holder.price.setText("Price: $" + productModelList.get(position).getPrice().toString());
+        holder.quantity.setText("Quantity: " + productModelList.get(position).getQuantity().toString());
         holder.addtocart.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -57,6 +58,8 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.ViewHol
 
                 //same if I want to erase products set it to false
                 FirebaseDatabase.getInstance().getReference().child("products").child(productModelList.get(position).getId()).child("cart").setValue(true);
+
+
 
 
             }

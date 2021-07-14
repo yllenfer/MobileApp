@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class Cart extends AppCompatActivity {
     RecyclerView recyclerView;
     CartAdapter cartAdapter;
     List<CartModel> cartModelList;
+    TextView overTotalAmount;
 
     public Cart() {
 
@@ -59,6 +61,7 @@ public class Cart extends AppCompatActivity {
         cartModelList = new ArrayList<>();
         cartAdapter = new CartAdapter(this,cartModelList);
         recyclerView.setAdapter(cartAdapter);
+//        overTotalAmount.findViewById(R.id.total_price);
 
 
 
@@ -86,6 +89,8 @@ public class Cart extends AppCompatActivity {
                 recyclerView.setAdapter(cartAdapter);
 
 
+
+
             }
 
             @Override
@@ -93,11 +98,25 @@ public class Cart extends AppCompatActivity {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
+
+
+
+
         });
 
-
+//        calculateTotalAmount(cartModelList);
 
     }
+
+//    private void calculateTotalAmount(List<CartModel> cartModelList) {
+//
+//        double totalAmount = 0.0;
+//        for(CartModel cartModel : cartModelList){
+//            totalAmount += cartModel.getTotalPrice();
+//        }
+//
+//        overTotalAmount.setText("Total amount: " + totalAmount );
+//    }
 
 
     public void goToCart(View view) {
@@ -106,6 +125,13 @@ public class Cart extends AppCompatActivity {
         finish();
     }
 
+
+
+    public void goToCheckOut(View view) {
+        Intent intent  = new Intent(Cart.this, Checkout.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 }

@@ -12,6 +12,7 @@
 
 
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarCheckout"
         android:layout_width="match_parent"
@@ -35,6 +36,7 @@
             android:paddingEnd="0dp"
             android:paddingRight="0dp"
             android:text="@string/cart"
+            android:onClick="goToCheckOut"
             android:textColor="@color/white"
             android:textSize="@dimen/title_size_toolbar" />
 
@@ -82,15 +84,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="525dp"
+        android:layout_width="392dp"
+        android:layout_height="563dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <ImageView
         android:id="@+id/notification"
@@ -118,7 +120,7 @@
         app:srcCompat="@drawable/ic_baseline_account_circle_24"
         tools:ignore="VectorDrawableCompat" />
 
-    <TextView
+    <Button
         android:id="@+id/total_price"
         android:layout_width="189dp"
         android:layout_height="59dp"
@@ -128,7 +130,7 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:background="@color/erin"
+        android:background="@drawable/btn_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
