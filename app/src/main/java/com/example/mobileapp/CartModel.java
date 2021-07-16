@@ -46,7 +46,7 @@ public class CartModel {
         return id;
     }
 
-    public void setId(String ide) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -66,7 +66,7 @@ public class CartModel {
     String id;
     Boolean cart;
     int totalPrice;
-    public boolean selected;
+    Boolean selected;
 
     public CartModel(String product_name, Long price, String image, int totalPrice, String id, Boolean cart, Boolean selected) {
         this.product_name = product_name;

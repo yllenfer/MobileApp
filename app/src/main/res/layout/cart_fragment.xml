@@ -36,7 +36,6 @@
             android:paddingEnd="0dp"
             android:paddingRight="0dp"
             android:text="@string/cart"
-            android:onClick="goToCheckOut"
             android:textColor="@color/white"
             android:textSize="@dimen/title_size_toolbar" />
 
@@ -64,6 +63,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
+        android:onClick="goBackButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
@@ -84,15 +84,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="392dp"
-        android:layout_height="563dp"
+        android:layout_width="391dp"
+        android:layout_height="496dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintVertical_bias="0.238" />
 
     <ImageView
         android:id="@+id/notification"
@@ -120,6 +120,8 @@
         app:srcCompat="@drawable/ic_baseline_account_circle_24"
         tools:ignore="VectorDrawableCompat" />
 
+
+
     <Button
         android:id="@+id/total_price"
         android:layout_width="189dp"
@@ -130,11 +132,14 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:onClick="goToCheckOut"
         android:background="@drawable/btn_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 
 

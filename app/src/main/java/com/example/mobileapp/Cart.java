@@ -2,20 +2,13 @@ package com.example.mobileapp;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowInsets;
-import android.view.WindowInsetsController;
-import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +53,7 @@ public class Cart extends AppCompatActivity {
         cartModelList = new ArrayList<>();
         cartAdapter = new CartAdapter(this,cartModelList);
         recyclerView.setAdapter(cartAdapter);
-//        overTotalAmount.findViewById(R.id.total_price);
+//      overTotalAmount.findViewById(R.id.total_price);
 
 
 
@@ -79,14 +71,15 @@ public class Cart extends AppCompatActivity {
                      CartModel cartModel = child.getValue(CartModel.class);
 
                     //This line will go in cart class
-                    if (cartModel.cart)
+                    if (cartModel.cart) {
                         cartModelList.add(cartModel);
-//                    Toast.makeText(Cart.this, "Product has been added", Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(Cart.this, "Product has been added", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 cartAdapter = new CartAdapter(getBaseContext(), cartModelList);
                 recyclerView.setAdapter(cartAdapter);
+                calculateTotalAmount(cartModelList);
 
 
 
@@ -108,15 +101,16 @@ public class Cart extends AppCompatActivity {
 
     }
 
-//    private void calculateTotalAmount(List<CartModel> cartModelList) {
-//
-//        double totalAmount = 0.0;
-//        for(CartModel cartModel : cartModelList){
-//            totalAmount += cartModel.getTotalPrice();
-//        }
-//
+    private double calculateTotalAmount(List<CartModel> cartModelList) {
+
+        double totalAmount = 0.0;
+        for(CartModel cartModel : cartModelList){
+            totalAmount += cartModel.getTotalPrice();
+        }
+
+        return totalAmount;
 //        overTotalAmount.setText("Total amount: " + totalAmount );
-//    }
+    }
 
 
     public void goToCart(View view) {
@@ -132,6 +126,24 @@ public class Cart extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
+    public void goToLogin(View view) {
+        Intent intent  = new Intent(Cart.this, LogIn.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void goBackButton(View view) {
+//        Intent intent  = new Intent(Cart.this, LogIn.class);
+//        startActivity(intent);
+//        finish();
+        onBackPressed();
+    }
+
+
+
+
 
 
 }
