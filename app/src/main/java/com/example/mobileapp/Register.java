@@ -132,7 +132,7 @@ public class Register extends AppCompatActivity {
         return response;
     }
     public void goLogIn(View view) {
-        Intent intent = new Intent(Register.this, Product.class);
+        Intent intent = new Intent(Register.this, LogIn.class);
         startActivity(intent);
         finish();
     }

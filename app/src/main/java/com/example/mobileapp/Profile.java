@@ -107,7 +107,11 @@ public class Profile extends AppCompatActivity {
                 if (userProfile != null) {
                     nameTV.setText(userProfile.name);
                     emailTV.setText(userProfile.email);
-                    ageHintTV.setText(userProfile.age + " years old");
+                    if (userProfile.age.equals("ADD AGE")) {
+                        ageHintTV.setText(userProfile.age);
+                    } else {
+                        ageHintTV.setText(userProfile.age + " years old");
+                    }
                     phoneHintTV.setText(userProfile.phone_number);
 
                     try {
@@ -295,5 +299,13 @@ public class Profile extends AppCompatActivity {
         Intent intent = new Intent(this, Product.class);
         startActivity(intent);
         finish();
+    }
+
+    public void changePassword(View view) {
+
+    }
+
+    public void logOut(View view) {
+
     }
 }
