@@ -56,6 +56,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
+        android:onClick="goProduct"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
@@ -95,9 +96,11 @@
         tools:ignore="VectorDrawableCompat" />
 
     <ImageView
+        android:clickable="true"
         android:id="@+id/imageView15"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:onClick="addPhone"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="108dp"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
@@ -109,6 +112,8 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
+        android:clickable="true"
+        android:onClick="addAge"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView15"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +157,7 @@
 
     <com.example.mobileapp.utils.TCToolbarTitle
         android:id="@+id/profile_age"
-        android:layout_width="314dp"
+        android:layout_width="270dp"
         android:layout_height="21dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
@@ -161,14 +166,14 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/profile_number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toEndOf="@+id/profile_img"
         app:layout_constraintTop_toBottomOf="@+id/profile_email"
         app:layout_constraintVertical_bias="0.992" />
 
     <com.example.mobileapp.utils.TCToolbarTitle
         android:id="@+id/profile_number"
-        android:layout_width="314dp"
+        android:layout_width="270dp"
         android:layout_height="21dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="110dp"
@@ -177,7 +182,7 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toEndOf="@+id/profile_img"
         app:layout_constraintTop_toBottomOf="@+id/profile_age" />
 
@@ -204,69 +209,87 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.733"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24"
+        app:srcCompat="@drawable/profile_photo"
         android:src="@drawable/ic_baseline_account_circle_24"/>
 
     <ImageView
         android:id="@+id/addPhone"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginStart="24dp"
         android:layout_marginBottom="108dp"
         android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="updatePhone"
         android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.325"
+        app:layout_constraintStart_toEndOf="@+id/profile_number"
         app:srcCompat="@drawable/ic_baseline_done_24" />
 
     <ImageView
         android:id="@+id/addAge"
-        android:clickable="true"
-        android:visibility="invisible"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginStart="24dp"
         android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"
+        android:onClick="updateAge"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/addPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.325"
+        app:layout_constraintStart_toEndOf="@+id/profile_age"
         app:srcCompat="@drawable/ic_baseline_done_24" />
 
-    <com.example.mobileapp.utils.TCToolbarTitle
-        android:id="@+id/addAgeField"
-        android:layout_width="314dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+    <EditText
+        android:id="@+id/phoneField"
+        android:layout_width="270dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="108dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="New age"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/profile_number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toEndOf="@+id/profile_img"
-        app:layout_constraintTop_toBottomOf="@+id/profile_email" />
-
-    <com.example.mobileapp.utils.TCToolbarTitle
-        android:id="@+id/addPhoneField"
-        android:layout_width="314dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="110dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="New Phone Number"
-        android:textColor="@color/white"
-        android:textSize="20dp"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="15dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toStartOf="@+id/addPhone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView15" />
+
+    <EditText
+        android:id="@+id/ageField"
+        android:layout_width="270dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/phoneField"
+        app:layout_constraintEnd_toStartOf="@+id/addPhone"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toEndOf="@+id/imageView20" />
+
+    <ImageView
+        android:id="@+id/addImageButton"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:clickable="true"
+        android:onClick="updateProfile"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
-        app:layout_constraintStart_toEndOf="@+id/profile_img"
-        app:layout_constraintTop_toBottomOf="@+id/profile_age"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintHorizontal_bias="0.642"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.343"
+        app:srcCompat="@android:drawable/ic_menu_add" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
