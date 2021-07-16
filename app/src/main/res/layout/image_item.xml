@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="15dp">
+
+
+<LinearLayout
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/grey"
+   >
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/roundedImage"
+        android:layout_width="257dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:riv_corner_radius="14dp"
+        android:layout_marginLeft="60dp"
+
+
+        />
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="100dp"
+        android:scaleType="centerCrop"
+        android:text="Title/productname"
+        android:textColor="@color/erin"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/p_description"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:text="howare you"
+        android:textColor="@color/erin"
+        android:textSize="28dp"
+
+        />
+
+
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:text="hthis is quantity"
+        android:textColor="@color/erin"
+        android:textSize="28dp" />
+
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="200dp"
+        android:text="hthis is price"
+        android:textColor="@color/erin"
+        android:textSize="28dp" />
+
+    <Button
+        android:id="@+id/addtocart"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/addtocart"
+        android:background="@drawable/btn_bg"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        />
+
+
+</LinearLayout>
+</androidx.cardview.widget.CardView>
+

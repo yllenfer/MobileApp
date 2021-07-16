@@ -1,13 +1,13 @@
 package com.example.mobileapp.models;
 
-public class ProductModel {
+public class SecondProductClass {
     private String product_name;
     private float price;
     private int quantity;
     private String description;
 
 
-    public ProductModel(String product_name, float price, int quantity, String description) {
+    public SecondProductClass(String product_name, float price, int quantity, String description) {
         this.product_name = product_name;
         this.price = price;
         this.quantity = quantity;
