@@ -112,7 +112,7 @@ public class Product extends AppCompatActivity {
 
 
     public void goToProfile(View view) {
-        Intent intent  = new Intent(Product.this, Overview.class);
+        Intent intent  = new Intent(Product.this, Profile.class);
         startActivity(intent);
         finish();
     }

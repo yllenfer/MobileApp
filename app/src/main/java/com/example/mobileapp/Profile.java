@@ -158,7 +158,7 @@ public class Profile extends AppCompatActivity {
         if (!userProfile.phone_number.equals(phoneFieldET.getText().toString())) {
             if (!phoneFieldET.getText().toString().equals("")) {
                 reference.child(userID).child("phone_number").setValue(phoneFieldET.getText().toString());
-                phoneHintTV.setText(phoneFieldET.getText().toString() + " years old");
+                phoneHintTV.setText(phoneFieldET.getText().toString());
         }
             addPhoneCheckIV.setVisibility(View.INVISIBLE);
             addPhoneButtonIV.setVisibility(View.    VISIBLE);
@@ -292,7 +292,7 @@ public class Profile extends AppCompatActivity {
     }
 
     public void goProduct(View view) {
-        Intent intent = new Intent(this, LogIn.class);
+        Intent intent = new Intent(this, Product.class);
         startActivity(intent);
         finish();
     }
