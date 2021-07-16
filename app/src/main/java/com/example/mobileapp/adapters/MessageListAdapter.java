@@ -30,36 +30,36 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         this.list = list;
     }
 
-
     private static class ReceivedMessageHolder extends RecyclerView.ViewHolder {
-        TextView timeText, TextMessage, userName;
+        TextView timeText, textMessage, userName;
 
         ReceivedMessageHolder(View itemView) {
             super(itemView);
             timeText = itemView.findViewById(R.id.text_gchat_timestamp_other);
-            TextMessage = itemView.findViewById(R.id.text_gchat_message_other);
+            textMessage = itemView.findViewById(R.id.text_gchat_message_other);
             userName = itemView.findViewById(R.id.text_gchat_user_other);
 
         }
 
         void bind(MessagesModel message) {
             userName.setText(message.getSender().getName());
-            TextMessage.setText(message.getMessage());
+            textMessage.setText(message.getMessage());
 
         }
     }
 
     private static class SentMessageHolder extends RecyclerView.ViewHolder {
-        TextView timeText, TextMessage, userName;
+        TextView timeText, textMessage, userName;
 
         SentMessageHolder(View itemView) {
             super(itemView);
             timeText = itemView.findViewById(R.id.text_gchat_timestamp_other);
-            TextMessage = itemView.findViewById(R.id.text_gchat_message_me);
+            textMessage = itemView.findViewById(R.id.text_gchat_message_me);
         }
 
         void bind(MessagesModel message) {
-            TextMessage.setText(message.getMessage());
+            textMessage.setText(message.getMessage());
+
         }
     }
 
@@ -88,9 +88,11 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         if (message.getSender().getUserId().equals(FirebaseClass.getUserID())) {
             // If the current user is the sender of the message
             return VIEW_TYPE_MESSAGE_SENT;
+
         } else {
             // If some other user sent the message
             return VIEW_TYPE_MESSAGE_RECEIVED;
+
         }
     }
 
@@ -105,6 +107,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 break;
             case VIEW_TYPE_MESSAGE_RECEIVED:
                 ((ReceivedMessageHolder) holder).bind(message);
+
         }
 
     }

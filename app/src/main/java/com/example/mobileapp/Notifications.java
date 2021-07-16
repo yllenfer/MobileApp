@@ -8,6 +8,8 @@ import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.mobileapp.adapters.NotificationAdapter;
 import com.example.mobileapp.models.NotificationModel;
@@ -28,6 +30,8 @@ public class Notifications extends AppCompatActivity {
         list.add(new NotificationModel("A title for now", "message from a friend"));
         list.add(new NotificationModel("Hello", "New offers for your intel i5"));
 
+        View backButton = findViewById(R.id.back_button);
+
         recyclerView = findViewById(R.id.recyclerViewNotification);
         recyclerView.setHasFixedSize(true);
 
@@ -42,6 +46,15 @@ public class Notifications extends AppCompatActivity {
             public void onItemClick(int position) {
                 Intent intent = new Intent(Notifications.this, Chat.class);
                 startActivity(intent);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(Notifications.this, Product.class);
+//                startActivity(intent);
+                finish();
             }
         });
 

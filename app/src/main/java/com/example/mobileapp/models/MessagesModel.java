@@ -3,9 +3,13 @@ package com.example.mobileapp.models;
 import com.example.mobileapp.User;
 
 public class MessagesModel {
-    String message;
-    User sender;
-    long createdAt;
+    public String message;
+    public User sender;
+    public long createdAt;
+
+    public MessagesModel() {
+
+    }
 
     public MessagesModel(String message, User sender, long createdAt) {
         this.message = message;

@@ -29,7 +29,6 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     }
     public void setOnItemClickListener(OnItemClickListener mlistener) {
         this.mlistener = mlistener;
-
     }
 
 

@@ -8,15 +8,18 @@ import androidx.annotation.NonNull;
 
 
 import com.example.mobileapp.AddProduct;
+import com.example.mobileapp.Chat;
 import com.example.mobileapp.Checkout;
 
 import com.example.mobileapp.Overview;
 
 import com.example.mobileapp.ProductModel;
 import com.example.mobileapp.Purchase;
+import com.example.mobileapp.User;
 import com.example.mobileapp.models.AddressModel;
 import com.example.mobileapp.models.CommentModel;
 
+import com.example.mobileapp.models.MessagesModel;
 import com.example.mobileapp.models.SecondProductClass;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -126,8 +130,51 @@ public class FirebaseClass {
             }
         });
 
+    }
 
+    public static void setMessageData(MessagesModel messagesModel) {
+        long date = messagesModel.getCreatedAt();
+        db = FirebaseDatabase.getInstance().getReference("messages").child(Long.toString(date)).push();
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                db.child("messageData").setValue(messagesModel);
+            }
 
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    public static ArrayList<MessagesModel> getMessageData(Chat chat) {
+        ArrayList<MessagesModel> listMessages = new ArrayList<>();
+        db = FirebaseDatabase.getInstance().getReference("messages");
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                for (DataSnapshot date : snapshot.getChildren()) {
+                    for (DataSnapshot randomNumber : date.getChildren()) {
+                        String message = randomNumber.child("messageData").child("message").getValue().toString();
+                        String createdAt = randomNumber.child("messageData").child("createdAt").getValue().toString();
+                        User userFireBase = randomNumber.child("messageData").child("sender").getValue(User.class);
+
+                        //listMessages.add(new MessagesModel(message, userFireBase, Long.parseLong(createdAt)));
+                        listMessages.add(new MessagesModel(message, userFireBase, Long.parseLong(createdAt)));
+
+                    }
+                }
+
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+
+        return listMessages;
     }
 
 }
