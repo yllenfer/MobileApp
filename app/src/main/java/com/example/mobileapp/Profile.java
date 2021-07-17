@@ -3,6 +3,7 @@ package com.example.mobileapp;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Notification;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -394,6 +395,12 @@ public class Profile extends AppCompatActivity {
         auth.signOut();
         Toast.makeText(Profile.this, "Goodbye " + userProfile.email, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Profile.this, Product.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void goNotifications(View view) {
+        Intent intent = new Intent(this, Notification.class);
         startActivity(intent);
         finish();
     }

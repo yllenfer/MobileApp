@@ -31,6 +31,7 @@ public class LogIn extends AppCompatActivity {
     private EditText ipass;
     FirebaseAuth mAuth;
     DatabaseReference dataBase;
+    FirebaseUser user;
 
     @Override
     @SuppressWarnings("DEPRECATION")
@@ -39,6 +40,13 @@ public class LogIn extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
         mAuth = FirebaseAuth.getInstance();
         dataBase = FirebaseDatabase.getInstance().getReference();
+        user = mAuth.getCurrentUser();
+        if (user != null) {
+            Intent intent  = new Intent(LogIn.this, Product.class);
+            startActivity(intent);
+            finish();
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             final WindowInsetsController insetsController = getWindow().getInsetsController();
             if (insetsController != null) {
@@ -107,7 +115,7 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void goProduct(View view) {
-        Intent intent  = new Intent(LogIn.this, Profile.class);
+        Intent intent  = new Intent(LogIn.this, Product.class);
         startActivity(intent);
         finish();
     }

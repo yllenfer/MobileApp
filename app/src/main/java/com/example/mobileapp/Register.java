@@ -127,6 +127,12 @@ public class Register extends AppCompatActivity {
             iconfirm.setError("Required Field");
             iconfirm.requestFocus();
             response = false;
+        }else {
+            if (!confirm.equals(pass)) {
+                iconfirm.setError("Password is not the same.");
+                iconfirm.requestFocus();
+                response = false;
+            }
         }
 
         return response;

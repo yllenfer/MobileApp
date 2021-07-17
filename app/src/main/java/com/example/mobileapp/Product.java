@@ -105,16 +105,28 @@ public class Product extends AppCompatActivity {
 
 
     public void goToCart(View view) {
-        Intent intent  = new Intent(Product.this, Cart.class);
-        startActivity(intent);
-        finish();
+        if (user != null) {
+            Intent intent  = new Intent(Product.this, Cart.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent  = new Intent(Product.this, LogIn.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
 
     public void goToProfile(View view) {
-        Intent intent  = new Intent(Product.this, Profile.class);
-        startActivity(intent);
-        finish();
+        if (user != null) {
+            Intent intent  = new Intent(Product.this, Profile.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent  = new Intent(Product.this, LogIn.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
 

@@ -77,6 +77,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:onClick="goNotifications"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:srcCompat="@drawable/ic_baseline_notifications_active_24"
