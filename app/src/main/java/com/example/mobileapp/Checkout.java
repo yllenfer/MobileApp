@@ -103,10 +103,5 @@ public class Checkout extends BaseActivity {
         FirebaseClass.addAddress(Checkout.this, addressClass);
 
     }
-
-
-
-
-
 }
 

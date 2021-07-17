@@ -129,7 +129,12 @@ public class Product extends AppCompatActivity {
         }
     }
 
+    public void goBack(View view) {
+            Intent intent = new Intent(Product.this, LogIn.class);
+            startActivity(intent);
+            finish();
 
+    }
 
 
 

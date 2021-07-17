@@ -53,7 +53,7 @@ public class Register extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Map<String, Object> map = new HashMap<>();
                     map.put("name", name);
-                    map.put("last-name", last);
+                    map.put("lastName", last);
                     map.put("email", email);
                     map.put("password", pass);
                     map.put("image", "");

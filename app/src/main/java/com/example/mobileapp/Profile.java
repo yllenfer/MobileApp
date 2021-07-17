@@ -118,7 +118,7 @@ public class Profile extends AppCompatActivity {
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 userProfile = snapshot.getValue(User.class);
                 if (userProfile != null) {
-                    nameTV.setText(userProfile.name);
+                    nameTV.setText(userProfile.name + " " + userProfile.lastName);
                     emailTV.setText(userProfile.email);
                     if (userProfile.age.equals("ADD AGE")) {
                         ageHintTV.setText(userProfile.age);
