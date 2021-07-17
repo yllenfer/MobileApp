@@ -38,6 +38,7 @@ public class Chat extends AppCompatActivity {
     private MessageListAdapter adapter;
     private LinearLayoutManager layoutManager;
     ArrayList<MessagesModel> list;
+    public String dateSent;
 
 
     @Override
@@ -47,12 +48,12 @@ public class Chat extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         Intent intent = getIntent();
-        String datesent = intent.getStringExtra("dateSent");
+        String dateSent = intent.getStringExtra("dateSent");
 
-        System.out.println(datesent);
+        System.out.println(dateSent);
         list = new ArrayList<>();
 
-        FirebaseClass.getMessageData(this, datesent);
+        FirebaseClass.getMessageData(this, dateSent);
 
         buildRecycler();
         layoutManager.scrollToPosition(list.size() - 1);
@@ -70,11 +71,10 @@ public class Chat extends AppCompatActivity {
 
                 FirebaseClass.setMessageData(new MessagesModel(textMessage.getText().toString(),
                         userfirebase,
-                        60));
+                        Long.parseLong(dateSent)));
 
                 clearData(list);
                 recyclerView.scrollToPosition(list.size() - 1);
-
                 messageText.setText("");
 
             }
@@ -106,10 +106,6 @@ public class Chat extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-
     }
-
-
-
 
 }

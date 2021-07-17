@@ -29,6 +29,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
@@ -77,7 +78,6 @@ public class FirebaseClass {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
-
                 Map<String, String> addressList = new HashMap<>();
                 addressList.put("address", dataSnapshot.child("address").getValue().toString());
                 addressList.put("postalCode", dataSnapshot.child("postalCode").getValue().toString());
@@ -150,31 +150,19 @@ public class FirebaseClass {
 
     }
 
-    public static void getMessageData(Chat chat, String data_sent) {
-        db = FirebaseDatabase.getInstance().getReference("messages");
+    public static void getMessageData(Chat chat, String dateSent) {
+        db = FirebaseDatabase.getInstance().getReference("messages").child(dateSent);
+
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                int position = 0;
-                for (DataSnapshot date : snapshot.getChildren()) {
-                    if (date.getKey() == data_sent) {
-                        for (DataSnapshot randomNumber : date.getChildren()) {
-                            MessagesModel message = randomNumber.getValue(MessagesModel.class);
-                            User userFireBase = randomNumber.child("sender").getValue(User.class);
-                            chat.createList(message.message, userFireBase, message.getCreatedAt());
 
-                        }
-                    }
-
-//                    for (DataSnapshot randomNumber : date.getChildren()) {
-//
-//                        MessagesModel message = randomNumber.getValue(MessagesModel.class);
-//                        User userFireBase = randomNumber.child("sender").getValue(User.class);
-//                        chat.createList(message.message, userFireBase, message.getCreatedAt());
-////                        userFireBase, message.createdAt
-//
-//                    }
+                for (DataSnapshot randomNumber : snapshot.getChildren()) {
+                    MessagesModel message = randomNumber.getValue(MessagesModel.class);
+                    User userFireBase = randomNumber.child("sender").getValue(User.class);
+                    chat.createList(message.getMessage(), userFireBase, message.getCreatedAt());
                 }
+
             }
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {

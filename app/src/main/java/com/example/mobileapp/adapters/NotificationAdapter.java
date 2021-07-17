@@ -21,7 +21,10 @@ import com.example.mobileapp.models.NotificationModel;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
     private ArrayList<NotificationModel> list;
@@ -56,26 +59,31 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
-        notification = list.get(position);
 
+        notification = list.get(position);
         holder.text1.setText(notification.getTitle());
         holder.text2.setText(notification.getNotification_message());
-        holder.date.setText(notification.getGetTime());
 
-        String date = notification.getGetTime();
+        long epochTime = Long.parseLong(notification.getGetTime());
+        Date date = new Date(epochTime * 1000);
+        Format format = new SimpleDateFormat("MMMM dd");
+        String convertedDate = format.format(date);
+
+        holder.date.setText(convertedDate);
+
+        String daten = notification.getGetTime();
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mlistener != null) {
                     if (position != RecyclerView.NO_POSITION) {
-                        OnItemClickListener.onItemClick(position, date);
+                        OnItemClickListener.onItemClick(position, daten);
 
                     }
                 }
             }
         });
-
     }
 
     @Override
@@ -88,7 +96,6 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         public TextView text1;
         public TextView text2;
         public TextView date;
-
 
         public ViewHolder(@NonNull @NotNull View itemView, OnItemClickListener mlistener) {
             super(itemView);

@@ -16,7 +16,10 @@ import com.example.mobileapp.firestore.FirebaseClass;
 import com.example.mobileapp.models.MessagesModel;
 import com.example.mobileapp.models.NotificationModel;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Notifications extends AppCompatActivity implements NotificationAdapter.OnItemClickListener{
     private RecyclerView recyclerView;
@@ -30,6 +33,7 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
+        System.out.println(convertTime(1589595738));
         User user = new User();
 
         //getFromFirebase();
@@ -64,7 +68,7 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
 
     public void clearData(ArrayList<NotificationModel> notificationModels) {
         notificationModels.clear();
-        adapter.notifyDataSetChanged();
+
     }
 
     public void createList(String date) {
@@ -88,11 +92,17 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
     @Override
     public void onItemClick(int position, String date) {
 
-//        clearData(list);
+        clearData(list);
         Intent intent = new Intent(Notifications.this, Chat.class);
         System.out.println(position);
         intent.putExtra("dateSent", date);
         startActivity(intent);
 
+    }
+
+    public String convertTime(long time){
+        Date date = new Date(time * 1000);
+        Format format = new SimpleDateFormat("MMMM dd");
+        return format.format(date);
     }
 }

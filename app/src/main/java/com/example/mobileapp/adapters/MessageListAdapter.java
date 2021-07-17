@@ -17,7 +17,12 @@ import com.example.mobileapp.models.MessagesModel;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.TimeZone;
 
 
 public class MessageListAdapter extends RecyclerView.Adapter {
@@ -31,7 +36,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
     }
 
     private static class ReceivedMessageHolder extends RecyclerView.ViewHolder {
-        TextView timeText, textMessage, userName;
+        public TextView timeText, textMessage, userName;
 
         ReceivedMessageHolder(View itemView) {
             super(itemView);
@@ -44,21 +49,39 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         void bind(MessagesModel message) {
             userName.setText(message.getSender().getName());
             textMessage.setText(message.getMessage());
+            //testing code
+            long epochTime = System.currentTimeMillis();
+            Date date = new Date(epochTime);
+            DateFormat format = new SimpleDateFormat("H:m MMMM dd yyyy");
+            format.setTimeZone(TimeZone.getTimeZone("GMT-5:00"));
+            String convertedDate = format.format(date);
+            timeText.setText(convertedDate);
+
 
         }
     }
 
     private static class SentMessageHolder extends RecyclerView.ViewHolder {
-        TextView timeText, textMessage, userName;
+        public TextView textMessage, userName;
+        public TextView timeText;
 
         SentMessageHolder(View itemView) {
             super(itemView);
-            timeText = itemView.findViewById(R.id.text_gchat_timestamp_other);
+            timeText = itemView.findViewById(R.id.text_gchat_timestamp_me);
             textMessage = itemView.findViewById(R.id.text_gchat_message_me);
+
+
+
         }
 
         void bind(MessagesModel message) {
             textMessage.setText(message.getMessage());
+
+            long epochTime = System.currentTimeMillis();
+            Date date = new Date(epochTime * 1000);
+            Format format = new SimpleDateFormat("H:m");
+            String convertedDate = format.format(date);
+            timeText.setText(convertedDate);
 
         }
     }
@@ -100,6 +123,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
 
         MessagesModel message = list.get(position);
+
 
         switch (holder.getItemViewType()) {
             case VIEW_TYPE_MESSAGE_SENT:
