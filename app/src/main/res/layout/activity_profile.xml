@@ -38,7 +38,9 @@
         android:layout_width="31dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:onClick="goToCart"
         app:layout_constraintBottom_toBottomOf="@+id/toolbarProfile"
         app:layout_constraintEnd_toEndOf="@+id/toolbarProfile"
         app:layout_constraintTop_toTopOf="parent"
@@ -78,18 +80,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:srcCompat="@drawable/ic_baseline_notifications_active_24"
-        tools:ignore="VectorDrawableCompat" />
-
-    <ImageView
-        android:id="@+id/userImage"
-        android:layout_width="38dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24"
         tools:ignore="VectorDrawableCompat" />
 
     <ImageView
@@ -288,7 +278,7 @@
         android:onClick="changePassword"
         android:text="CHANGE PASSWORD"
         android:textColor="#FFFFFF"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/btlogout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -299,10 +289,11 @@
         android:layout_height="48dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/btn_bg"
-        android:onClick="logOut"
-        android:text="LOG OUT"
         android:textColor="#FFFFFF"
-        android:textSize="10sp"
+        android:textSize="12sp"
+        android:text="Log Out"
+        android:clickable="true"
+        android:onClick="logOut"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -11,8 +11,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,11 +25,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -75,12 +82,15 @@ public class Profile extends AppCompatActivity {
     private Uri image_uri;
     private String profile;
 
+    private Button logOut;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        auth  = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference().child("Users");
         userID = user.getUid();
 
@@ -99,6 +109,8 @@ public class Profile extends AppCompatActivity {
         profileImage = findViewById(R.id.profile_image_view);
         storage = FirebaseStorage.getInstance().getReference();
         storagePermissions = new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+        logOut = findViewById(R.id.btlogout);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -129,6 +141,11 @@ public class Profile extends AppCompatActivity {
                 Toast.makeText(Profile.this, "Something wrong happened!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void onStart() {
+        super.onStart();
+        if (user != null) {} else {}
     }
 
     public void addAge(View v) {
@@ -302,10 +319,82 @@ public class Profile extends AppCompatActivity {
     }
 
     public void changePassword(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Profile.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View vw = inflater.inflate(R.layout.dialog_update_password, null);
+        builder.setView(vw);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        EditText oldPassword = vw.findViewById(R.id.etoldpassword);
+        EditText newPassword = vw.findViewById(R.id.etnewpassword);
+        Button updatePassword = vw.findViewById(R.id.btupdatepassword);
+        Button cancelPassword = vw.findViewById(R.id.btcancelpassword);
+
+        updatePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String oldPass = oldPassword.getText().toString();
+                String newPass = newPassword.getText().toString();
+                if (TextUtils.isEmpty(oldPass)) {
+                    Toast.makeText(Profile.this, "Enter current password.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (newPassword.length()<6) {
+                    Toast.makeText(Profile.this, "Password must be al least 6 characters long.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                dialog.dismiss();
+                updatePass(oldPass, newPass);
+            }
+        });
+
+        cancelPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private void updatePass(String oldPass, String newPass) {
+        AuthCredential authCredential = EmailAuthProvider.getCredential(user.getEmail(), oldPass);
+        user.reauthenticate(authCredential).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                user.updatePassword(newPass).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(Profile.this, "Password updated.", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull @NotNull Exception e) {
+                        Toast.makeText(Profile.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Toast.makeText(Profile.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
-    public void logOut(View view) {
+    public void goToCart(View view) {
+        Intent intent = new Intent(this, Cart.class);
+        startActivity(intent);
+        finish();
+    }
 
+    public void logOut(View view) {
+        auth.signOut();
+        Toast.makeText(Profile.this, "Goodbye " + userProfile.email, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Profile.this, Product.class);
+        startActivity(intent);
+        finish();
     }
 }
