@@ -11,6 +11,7 @@ import com.example.mobileapp.AddProduct;
 import com.example.mobileapp.Chat;
 import com.example.mobileapp.Checkout;
 
+import com.example.mobileapp.Notifications;
 import com.example.mobileapp.Overview;
 
 import com.example.mobileapp.ProductModel;
@@ -138,7 +139,7 @@ public class FirebaseClass {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                db.child("messageData").setValue(messagesModel);
+                db.setValue(messagesModel);
             }
 
             @Override
@@ -149,24 +150,50 @@ public class FirebaseClass {
 
     }
 
-    public static ArrayList<MessagesModel> getMessageData(Chat chat) {
-        ArrayList<MessagesModel> listMessages = new ArrayList<>();
+    public static void getMessageData(Chat chat, String data_sent) {
+        db = FirebaseDatabase.getInstance().getReference("messages");
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                int position = 0;
+                for (DataSnapshot date : snapshot.getChildren()) {
+                    if (date.getKey() == data_sent) {
+                        for (DataSnapshot randomNumber : date.getChildren()) {
+                            MessagesModel message = randomNumber.getValue(MessagesModel.class);
+                            User userFireBase = randomNumber.child("sender").getValue(User.class);
+                            chat.createList(message.message, userFireBase, message.getCreatedAt());
+
+                        }
+                    }
+
+//                    for (DataSnapshot randomNumber : date.getChildren()) {
+//
+//                        MessagesModel message = randomNumber.getValue(MessagesModel.class);
+//                        User userFireBase = randomNumber.child("sender").getValue(User.class);
+//                        chat.createList(message.message, userFireBase, message.getCreatedAt());
+////                        userFireBase, message.createdAt
+//
+//                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public static void getNotificationData(Notifications notifications) {
         db = FirebaseDatabase.getInstance().getReference("messages");
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot date : snapshot.getChildren()) {
-                    for (DataSnapshot randomNumber : date.getChildren()) {
-                        String message = randomNumber.child("messageData").child("message").getValue().toString();
-                        String createdAt = randomNumber.child("messageData").child("createdAt").getValue().toString();
-                        User userFireBase = randomNumber.child("messageData").child("sender").getValue(User.class);
+                    String dateTitle = date.getKey();
+                    notifications.createList(dateTitle);
 
-                        //listMessages.add(new MessagesModel(message, userFireBase, Long.parseLong(createdAt)));
-                        listMessages.add(new MessagesModel(message, userFireBase, Long.parseLong(createdAt)));
 
-                    }
                 }
-
             }
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
@@ -174,9 +201,8 @@ public class FirebaseClass {
             }
         });
 
-        return listMessages;
-    }
 
+    }
 }
 
 

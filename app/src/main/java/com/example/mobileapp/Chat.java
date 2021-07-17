@@ -19,6 +19,7 @@ import com.example.mobileapp.adapters.MessageListAdapter;
 import com.example.mobileapp.adapters.NotificationAdapter;
 import com.example.mobileapp.firestore.FirebaseClass;
 import com.example.mobileapp.models.MessagesModel;
+import com.example.mobileapp.models.NotificationModel;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,21 +36,29 @@ import java.util.List;
 public class Chat extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MessageListAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private LinearLayoutManager layoutManager;
+    ArrayList<MessagesModel> list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        ArrayList<MessagesModel> itemsList = createList();
-        buildRecycler(itemsList);
+        Intent intent = getIntent();
+        String datesent = intent.getStringExtra("dateSent");
+
+        System.out.println(datesent);
+        list = new ArrayList<>();
+
+        FirebaseClass.getMessageData(this, datesent);
+
+        buildRecycler();
+        layoutManager.scrollToPosition(list.size() - 1);
 
         Button btnSendMessage = findViewById(R.id.button_gchat_send);
         EditText messageText = findViewById(R.id.edit_gchat_message);
-
-
-        recyclerView.scrollToPosition(itemsList.size() - 1);
 
         btnSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,14 +70,21 @@ public class Chat extends AppCompatActivity {
 
                 FirebaseClass.setMessageData(new MessagesModel(textMessage.getText().toString(),
                         userfirebase,
-                        21));
+                        60));
 
-                clearData(itemsList);
+                clearData(list);
+                recyclerView.scrollToPosition(list.size() - 1);
 
                 messageText.setText("");
 
             }
         });
+
+    }
+
+    public void createList(String message, User user, Long date) {
+        list.add(new MessagesModel(message, user, date));
+        adapter.notifyDataSetChanged();
 
     }
 
@@ -78,49 +94,22 @@ public class Chat extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    public ArrayList<MessagesModel> createList() {
-        ArrayList<MessagesModel> itemsList = new ArrayList<>();
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference("messages");
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for (DataSnapshot date : snapshot.getChildren()) {
-                    for (DataSnapshot randomNumber : date.getChildren()) {
-                        String message = randomNumber.child("messageData").child("message").getValue().toString();
-                        String createdAt = randomNumber.child("messageData").child("createdAt").getValue().toString();
-                        User userFireBase = randomNumber.child("messageData").child("sender").getValue(User.class);
 
-                        //listMessages.add(new MessagesModel(message, userFireBase, Long.parseLong(createdAt)));
-                        itemsList.add(new MessagesModel(message, userFireBase, Long.parseLong(createdAt)));
-
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
-
-        return itemsList;
-
-    }
-
-    public void buildRecycler(ArrayList MessagesModel) {
+    public void buildRecycler() {
         recyclerView = findViewById(R.id.recycler_gchat);
         recyclerView.setHasFixedSize(true);
+
         layoutManager = new LinearLayoutManager(this);
-        adapter = new MessageListAdapter(MessagesModel);
+        layoutManager.setStackFromEnd(true);
+        adapter = new MessageListAdapter(list);
 
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.getRecycledViewPool().clear();
         recyclerView.setAdapter(adapter);
 
-        adapter.notifyDataSetChanged();
 
     }
+
+
 
 
 }
