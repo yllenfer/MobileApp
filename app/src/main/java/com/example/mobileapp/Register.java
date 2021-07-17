@@ -53,9 +53,12 @@ public class Register extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Map<String, Object> map = new HashMap<>();
                     map.put("name", name);
-                    map.put("last-name", last);
+                    map.put("lastName", last);
                     map.put("email", email);
                     map.put("password", pass);
+                    map.put("image", "");
+                    map.put("age", "ADD AGE");
+                    map.put("phone_number", "ADD PHONE NUMBER");
                     String id = mAuth.getCurrentUser().getUid();
 
                     dataBase.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -124,6 +127,12 @@ public class Register extends AppCompatActivity {
             iconfirm.setError("Required Field");
             iconfirm.requestFocus();
             response = false;
+        }else {
+            if (!confirm.equals(pass)) {
+                iconfirm.setError("Password is not the same.");
+                iconfirm.requestFocus();
+                response = false;
+            }
         }
 
         return response;
@@ -132,5 +141,5 @@ public class Register extends AppCompatActivity {
         Intent intent = new Intent(Register.this, LogIn.class);
         startActivity(intent);
         finish();
-        }
     }
+}

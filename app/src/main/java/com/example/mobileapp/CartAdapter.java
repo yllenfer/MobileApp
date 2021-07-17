@@ -56,19 +56,35 @@ public class CartAdapter extends RecyclerView.Adapter <CartAdapter.ViewHolder>{
 
             @Override
             public void onClick(View v) {
+//                //here is the bug
+//                //same if I want to erase products set it to false
+//                for(int i = cartModelList.size()-1; i >= 0; i--) {
+//                    if(cartModelList.get(i).selected) {
+//                        cartModelList.remove(i);
+//                    }
+//                }
+//                notifyDataSetChanged();
 
-                //same if I want to erase products set it to false
-                for(int i = cartModelList.size()-1; i >= 0; i--) {
-                    if(cartModelList.get(i).selected) {
-                        cartModelList.remove(i);
-                    }
-                }
-                notifyDataSetChanged();
-
+                FirebaseDatabase.getInstance().getReference().child("products").child(cartModelList.get(position).getId()).child("cart").setValue(false);
             }
 
 
+//                public void toggleSelection(int position) {
+//                    Product selectedProduct = (Product) getItem(position);
+//                    if(selectedProduct.selected) { // no need to check " == true"
+//                        selectedProduct.selected = false;
+//                    }
+//                    else {
+//                        selectedProduct.selected = true;
+//                    }
+//                    notifyDataSetInvalidated();
+//                }
+
+//            }
+
+
         });
+
 
 
 //        totalPrice = totalPrice + cartModelList.get(position).getTotalPrice();
