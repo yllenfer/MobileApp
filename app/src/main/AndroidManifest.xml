@@ -77,6 +77,18 @@
 
         </activity>
 
+        <activity android:name=".Notifications"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar"
+            >
+
+        </activity>
+
+        <activity
+            android:name=".Chat"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileApp.NoActionBar"/>
+
     </application>
 
 </manifest>

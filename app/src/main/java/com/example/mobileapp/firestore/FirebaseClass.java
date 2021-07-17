@@ -8,15 +8,19 @@ import androidx.annotation.NonNull;
 
 
 import com.example.mobileapp.AddProduct;
+import com.example.mobileapp.Chat;
 import com.example.mobileapp.Checkout;
 
+import com.example.mobileapp.Notifications;
 import com.example.mobileapp.Overview;
 
 import com.example.mobileapp.ProductModel;
 import com.example.mobileapp.Purchase;
+import com.example.mobileapp.User;
 import com.example.mobileapp.models.AddressModel;
 import com.example.mobileapp.models.CommentModel;
 
+import com.example.mobileapp.models.MessagesModel;
 import com.example.mobileapp.models.SecondProductClass;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,11 +29,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,7 +78,6 @@ public class FirebaseClass {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
-
                 Map<String, String> addressList = new HashMap<>();
                 addressList.put("address", dataSnapshot.child("address").getValue().toString());
                 addressList.put("postalCode", dataSnapshot.child("postalCode").getValue().toString());
@@ -126,10 +131,66 @@ public class FirebaseClass {
             }
         });
 
+    }
 
+    public static void setMessageData(MessagesModel messagesModel) {
+        long date = messagesModel.getCreatedAt();
+        db = FirebaseDatabase.getInstance().getReference("messages").child(Long.toString(date)).push();
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                db.setValue(messagesModel);
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
 
     }
 
+    public static void getMessageData(Chat chat, String dateSent) {
+        db = FirebaseDatabase.getInstance().getReference("messages").child(dateSent);
+
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+
+                for (DataSnapshot randomNumber : snapshot.getChildren()) {
+                    MessagesModel message = randomNumber.getValue(MessagesModel.class);
+                    User userFireBase = randomNumber.child("sender").getValue(User.class);
+                    chat.createList(message.getMessage(), userFireBase, message.getCreatedAt());
+                }
+
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public static void getNotificationData(Notifications notifications) {
+        db = FirebaseDatabase.getInstance().getReference("messages");
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                for (DataSnapshot date : snapshot.getChildren()) {
+                    String dateTitle = date.getKey();
+                    notifications.createList(dateTitle);
+
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
 }
 
 

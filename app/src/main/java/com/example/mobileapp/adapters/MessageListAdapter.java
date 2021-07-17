@@ -17,7 +17,12 @@ import com.example.mobileapp.models.MessagesModel;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.TimeZone;
 
 
 public class MessageListAdapter extends RecyclerView.Adapter {
@@ -30,36 +35,54 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         this.list = list;
     }
 
-
     private static class ReceivedMessageHolder extends RecyclerView.ViewHolder {
-        TextView timeText, TextMessage, userName;
+        public TextView timeText, textMessage, userName;
 
         ReceivedMessageHolder(View itemView) {
             super(itemView);
             timeText = itemView.findViewById(R.id.text_gchat_timestamp_other);
-            TextMessage = itemView.findViewById(R.id.text_gchat_message_other);
+            textMessage = itemView.findViewById(R.id.text_gchat_message_other);
             userName = itemView.findViewById(R.id.text_gchat_user_other);
 
         }
 
         void bind(MessagesModel message) {
             userName.setText(message.getSender().getName());
-            TextMessage.setText(message.getMessage());
+            textMessage.setText(message.getMessage());
+            //testing code
+            long epochTime = System.currentTimeMillis();
+            Date date = new Date(epochTime);
+            DateFormat format = new SimpleDateFormat("H:m MMMM dd yyyy");
+            format.setTimeZone(TimeZone.getTimeZone("GMT-5:00"));
+            String convertedDate = format.format(date);
+            timeText.setText(convertedDate);
+
 
         }
     }
 
     private static class SentMessageHolder extends RecyclerView.ViewHolder {
-        TextView timeText, TextMessage, userName;
+        public TextView textMessage, userName;
+        public TextView timeText;
 
         SentMessageHolder(View itemView) {
             super(itemView);
-            timeText = itemView.findViewById(R.id.text_gchat_timestamp_other);
-            TextMessage = itemView.findViewById(R.id.text_gchat_message_me);
+            timeText = itemView.findViewById(R.id.text_gchat_timestamp_me);
+            textMessage = itemView.findViewById(R.id.text_gchat_message_me);
+
+
+
         }
 
         void bind(MessagesModel message) {
-            TextMessage.setText(message.getMessage());
+            textMessage.setText(message.getMessage());
+
+            long epochTime = System.currentTimeMillis();
+            Date date = new Date(epochTime * 1000);
+            Format format = new SimpleDateFormat("H:m");
+            String convertedDate = format.format(date);
+            timeText.setText(convertedDate);
+
         }
     }
 
@@ -88,9 +111,11 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         if (message.getSender().getUserId().equals(FirebaseClass.getUserID())) {
             // If the current user is the sender of the message
             return VIEW_TYPE_MESSAGE_SENT;
+
         } else {
             // If some other user sent the message
             return VIEW_TYPE_MESSAGE_RECEIVED;
+
         }
     }
 
@@ -99,12 +124,14 @@ public class MessageListAdapter extends RecyclerView.Adapter {
 
         MessagesModel message = list.get(position);
 
+
         switch (holder.getItemViewType()) {
             case VIEW_TYPE_MESSAGE_SENT:
                 ((SentMessageHolder) holder).bind(message);
                 break;
             case VIEW_TYPE_MESSAGE_RECEIVED:
                 ((ReceivedMessageHolder) holder).bind(message);
+
         }
 
     }
