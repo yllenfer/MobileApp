@@ -25,7 +25,7 @@ import java.util.List;
 
 public class Cart extends AppCompatActivity {
 
-
+    private static Cart cart;
     DatabaseReference db;
     FirebaseAuth auth;
     TextView cartTitle;
@@ -37,7 +37,6 @@ public class Cart extends AppCompatActivity {
     public Cart() {
 
     }
-
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState){
@@ -66,22 +65,19 @@ public class Cart extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot ) {
                 cartModelList.clear();
 
-
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                      CartModel cartModel = child.getValue(CartModel.class);
 
                     //This line will go in cart class
                     if (cartModel.cart) {
                         cartModelList.add(cartModel);
-                    Toast.makeText(Cart.this, "Product has been added", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Cart.this, "Product has been added", Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 cartAdapter = new CartAdapter(getBaseContext(), cartModelList);
                 recyclerView.setAdapter(cartAdapter);
                 calculateTotalAmount(cartModelList);
-
-
 
 
             }
@@ -101,13 +97,26 @@ public class Cart extends AppCompatActivity {
 
     }
 
+    public List<CartModel> getList() {
+        return cartModelList;
+    }
+
+    public void setList(List<CartModel> cartModelList) {
+        this.cartModelList = cartModelList;
+    }
+    public static Cart getInstance(){
+        if(cart == null){
+            cart = new Cart();
+        }
+        return cart;
+    }
+
     private void calculateTotalAmount(List<CartModel> cartModelList) {
 
         double totalAmount = 0.0;
         for(CartModel cartModel : cartModelList){
             totalAmount += cartModel.getPrice();
         }
-
 //        return totalAmount;
         overTotalAmount.setText("TOTAL: " + totalAmount );
     }
@@ -119,14 +128,11 @@ public class Cart extends AppCompatActivity {
         finish();
     }
 
-
-
     public void goToCheckOut(View view) {
         Intent intent  = new Intent(Cart.this, Checkout.class);
         startActivity(intent);
-        finish();
+        Cart.getInstance().setList(cartModelList);
     }
-
 
     public void goToProfile(View view) {
         Intent intent  = new Intent(Cart.this, Profile.class);
