@@ -113,7 +113,7 @@ public class Cart extends AppCompatActivity {
 
     private void calculateTotalAmount(List<CartModel> cartModelList) {
 
-        double totalAmount = 0.0;
+        double totalAmount = 0.00;
         for(CartModel cartModel : cartModelList){
             totalAmount += cartModel.getPrice();
         }

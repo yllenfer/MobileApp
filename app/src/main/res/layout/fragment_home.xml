@@ -59,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:onClick="goToPurchase"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -70,13 +71,13 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/ic_bottom_layer"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="-28dp">
 
 
     </androidx.appcompat.widget.Toolbar>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -90,18 +91,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.482" />
 
+
     <ImageView
         android:id="@+id/notification"
-        android:layout_width="37dp"
-        android:layout_height="34dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
+        android:onClick="goToNotifications"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintEnd_toStartOf="@+id/userImage"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977"
         app:srcCompat="@drawable/ic_baseline_notifications_active_24"
         tools:ignore="VectorDrawableCompat" />
-
 
     <ImageView
         android:id="@+id/userImage"
