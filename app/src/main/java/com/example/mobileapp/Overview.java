@@ -14,6 +14,8 @@ import com.example.mobileapp.utils.TCTextView;
 import java.util.Map;
 
 public class Overview extends AppCompatActivity {
+    public String productName = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class Overview extends AppCompatActivity {
         Button completeOrderBtn = findViewById(R.id.completeOrder);
         View backButton = findViewById(R.id.back_button);
         getAddressFireBase();
+
+        String productName = getIntent().getStringExtra("productName");
 
         completeOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
