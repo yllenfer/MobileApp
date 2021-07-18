@@ -75,7 +75,7 @@ public class Purchase extends AppCompatActivity {
 
 
        public void goToProfile(View view) {
-        Intent intent  = new Intent(Purchase.this, Notifications.class);
+        Intent intent  = new Intent(Purchase.this, Profile.class);
         startActivity(intent);
         finish();
     }

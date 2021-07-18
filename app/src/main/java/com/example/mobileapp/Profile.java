@@ -400,7 +400,7 @@ public class Profile extends AppCompatActivity {
     }
 
     public void goNotifications(View view) {
-        Intent intent = new Intent(this, Notification.class);
+        Intent intent = new Intent(this, Notifications.class);
         startActivity(intent);
         finish();
     }
