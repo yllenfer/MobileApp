@@ -77,6 +77,7 @@
         android:layout_height="31dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
+        android:onClick="goToCart"
         app:layout_constraintEnd_toEndOf="@+id/bottomAppBar3"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
@@ -117,6 +118,7 @@
 
     <ImageView
         android:id="@+id/imageView8"
+        android:onClick="goToNotifications"
         android:layout_width="32dp"
         android:layout_height="34dp"
         android:layout_marginStart="32dp"
@@ -131,6 +133,7 @@
         android:layout_width="52dp"
         android:layout_height="45dp"
         android:layout_marginEnd="24dp"
+        android:onClick="goToProfile"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/toolbarBottom"

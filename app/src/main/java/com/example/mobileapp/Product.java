@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class Product extends AppCompatActivity {
     ProductAdapter productAdapter;
     DatabaseReference db;
     FirebaseUser user;
+//    RoundedImageView imageView;
 
 
 
@@ -56,6 +59,16 @@ public class Product extends AppCompatActivity {
         productModelList = new ArrayList<>();
         productAdapter = new ProductAdapter(this,productModelList);
         productRecycler.setAdapter(productAdapter);
+//        imageView = findViewById(R.id.roundedImage);
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent  = new Intent(Product.this, Purchase.class);
+//                startActivity(intent);
+//                finish();
+//
+//            }
+//        });
 
 
         Query myRef;
@@ -90,6 +103,9 @@ public class Product extends AppCompatActivity {
 
 
 
+
+
+
 //     bnt.setOnClickListener(new View.OnClickListener() {
 //
 //         @Override
@@ -117,11 +133,18 @@ public class Product extends AppCompatActivity {
         finish();
     }
 
-//    public void goToProduct(View view) {
-//        Intent intent  = new Intent(Product.this, Cart.class);
-//        startActivity(intent);
-//        finish();
-//    }
+    public void goToNotifications(View view) {
+        Intent intent  = new Intent(Product.this, Notifications.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void goToPurchase(View view) {
+        Intent intent  = new Intent(Product.this, Purchase.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 

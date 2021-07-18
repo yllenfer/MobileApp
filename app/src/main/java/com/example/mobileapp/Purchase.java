@@ -35,10 +35,10 @@ public class Purchase extends AppCompatActivity {
             finish();
         });
 
-        shoppingCartImage.setOnClickListener(v -> {
-            startActivity(new Intent(Purchase.this, CartModel.class));
-            finish();
-        });
+//        shoppingCartImage.setOnClickListener(v -> {
+//            startActivity(new Intent(Purchase.this, Cart.class));
+//            finish();
+//        });
 
         commentSendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +65,29 @@ public class Purchase extends AppCompatActivity {
         FirebaseClass.addMessage(this, commentModel);
 
     }
+
+
+    public void goToNotifications(View view) {
+        Intent intent  = new Intent(Purchase.this, Notifications.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+       public void goToProfile(View view) {
+        Intent intent  = new Intent(Purchase.this, Notifications.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void goToCart(View view) {
+        Intent intent  = new Intent(Purchase.this, Cart.class);
+        startActivity(intent);
+        finish();
+    }
+
+
 
 
 }

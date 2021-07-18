@@ -41,6 +41,7 @@
             android:scaleType="centerCrop"
             android:src="@drawable/logo"
             app:riv_corner_radius="14dp"
+            android:clickable="true"
 
 
         />
