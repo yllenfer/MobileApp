@@ -48,9 +48,9 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.ViewHol
     public void onBindViewHolder(@NonNull @NotNull ProductAdapter.ViewHolder holder, int position) {
         Glide.with(context).load(productModelList.get(position).getImage()).into(holder.image);
         holder.name.setText(productModelList.get(position).getProduct_name());
-        holder.description.setText("Description: " + productModelList.get(position).getDescription());
-        holder.price.setText("Price: $" + productModelList.get(position).getPrice().toString());
-        holder.quantity.setText("Quantity: " + productModelList.get(position).getQuantity().toString());
+//        holder.description.setText("Description: " + productModelList.get(position).getDescription());
+        holder.price.setText("$" + productModelList.get(position).getPrice().toString());
+//        holder.quantity.setText("Quantity: " + productModelList.get(position).getQuantity().toString());
         holder.addtocart.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -97,7 +97,7 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.ViewHol
             price = itemView.findViewById(R.id.price);
             description = itemView.findViewById(R.id.p_description);
             name = itemView.findViewById(R.id.title);
-            quantity = itemView.findViewById(R.id.quantity);
+//            quantity = itemView.findViewById(R.id.quantity);
             addtocart = itemView.findViewById(R.id.addtocart);
 
 

@@ -53,7 +53,7 @@ public class Cart extends AppCompatActivity {
         cartModelList = new ArrayList<>();
         cartAdapter = new CartAdapter(this,cartModelList);
         recyclerView.setAdapter(cartAdapter);
-//      overTotalAmount.findViewById(R.id.total_price);
+        overTotalAmount = findViewById(R.id.total_price);
 
 
 
@@ -101,15 +101,15 @@ public class Cart extends AppCompatActivity {
 
     }
 
-    private double calculateTotalAmount(List<CartModel> cartModelList) {
+    private void calculateTotalAmount(List<CartModel> cartModelList) {
 
         double totalAmount = 0.0;
         for(CartModel cartModel : cartModelList){
-            totalAmount += cartModel.getTotalPrice();
+            totalAmount += cartModel.getPrice();
         }
 
-        return totalAmount;
-//        overTotalAmount.setText("Total amount: " + totalAmount );
+//        return totalAmount;
+        overTotalAmount.setText("TOTAL: " + totalAmount );
     }
 
 
@@ -128,8 +128,8 @@ public class Cart extends AppCompatActivity {
     }
 
 
-    public void goToLogin(View view) {
-        Intent intent  = new Intent(Cart.this, LogIn.class);
+    public void goToProfile(View view) {
+        Intent intent  = new Intent(Cart.this, Profile.class);
         startActivity(intent);
         finish();
     }
@@ -139,6 +139,12 @@ public class Cart extends AppCompatActivity {
 //        startActivity(intent);
 //        finish();
         onBackPressed();
+    }
+
+    public void goToProduct(View view) {
+        Intent intent  = new Intent(Cart.this, Product.class);
+        startActivity(intent);
+        finish();
     }
 
 

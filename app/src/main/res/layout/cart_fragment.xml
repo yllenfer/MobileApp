@@ -57,90 +57,74 @@
         tools:ignore="VectorDrawableCompat" />
 
     <ImageView
-        android:id="@+id/back_button"
+        android:id="@+id/goToProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:onClick="goBackButton"
+        android:onClick="goToProduct"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
         tools:ignore="VectorDrawableCompat" />
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@drawable/ic_bottom_layer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp">
-
-
-    </androidx.appcompat.widget.Toolbar>
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="391dp"
-        android:layout_height="496dp"
+        android:layout_width="379dp"
+        android:layout_height="536dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
-
-    <ImageView
-        android:id="@+id/notification"
-        android:layout_width="37dp"
-        android:layout_height="34dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:srcCompat="@drawable/ic_baseline_notifications_active_24"
-        tools:ignore="VectorDrawableCompat" />
-
-
-    <ImageView
-        android:id="@+id/userImage"
-        android:layout_width="38dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="12dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.924"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24"
-        tools:ignore="VectorDrawableCompat" />
-
-
+        app:layout_constraintVertical_bias="0.287" />
 
     <Button
-        android:id="@+id/total_price"
+        android:id="@+id/goToCheckout"
         android:layout_width="189dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="76dp"
-        android:text="Total Price"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:onClick="goToCheckOut"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/btn_bg"
+        android:gravity="center"
+        android:onClick="goToCheckOut"
+        android:text="@string/checkout"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="431dp"
+        android:layout_height="172dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/goToCheckout"
+        app:layout_constraintVertical_bias="0.746"
+        app:srcCompat="@drawable/checkoutbar" />
 
+
+    <TextView
+        android:id="@+id/total_price"
+        android:layout_width="241dp"
+        android:layout_height="51dp"
+        android:gravity="center"
+        android:text="This is the price"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbarCheckout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.866" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

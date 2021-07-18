@@ -36,9 +36,9 @@ public class CartModel {
         this.image = image;
     }
 
-    public int getTotalPrice(){return totalPrice;}
+    public double getTotalPrice(){return totalPrice;}
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -65,10 +65,10 @@ public class CartModel {
     String image;
     String id;
     Boolean cart;
-    int totalPrice;
+    double totalPrice;
     Boolean selected;
 
-    public CartModel(String product_name, Long price, String image, int totalPrice, String id, Boolean cart, Boolean selected) {
+    public CartModel(String product_name, Long price, String image, double totalPrice, String id, Boolean cart, Boolean selected) {
         this.product_name = product_name;
         this.price = price;
         this.image = image;
