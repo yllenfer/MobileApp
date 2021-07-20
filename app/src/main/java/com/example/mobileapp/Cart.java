@@ -28,7 +28,6 @@ public class Cart extends AppCompatActivity {
     private static Cart cart;
     DatabaseReference db;
     FirebaseAuth auth;
-    TextView cartTitle;
     RecyclerView recyclerView;
     CartAdapter cartAdapter;
     List<CartModel> cartModelList;
@@ -39,7 +38,7 @@ public class Cart extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState){
+    protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart_fragment);
@@ -50,10 +49,9 @@ public class Cart extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         cartModelList = new ArrayList<>();
-        cartAdapter = new CartAdapter(this,cartModelList);
+        cartAdapter = new CartAdapter(this, cartModelList);
         recyclerView.setAdapter(cartAdapter);
         overTotalAmount = findViewById(R.id.total_price);
-
 
 
         // Read from the database
@@ -62,11 +60,11 @@ public class Cart extends AppCompatActivity {
             private static final String TAG = "";
 
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot ) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
                 cartModelList.clear();
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
-                     CartModel cartModel = child.getValue(CartModel.class);
+                    CartModel cartModel = child.getValue(CartModel.class);
 
                     //This line will go in cart class
                     if (cartModel.cart) {
@@ -89,8 +87,6 @@ public class Cart extends AppCompatActivity {
             }
 
 
-
-
         });
 
 //        calculateTotalAmount(cartModelList);
@@ -104,8 +100,9 @@ public class Cart extends AppCompatActivity {
     public void setList(List<CartModel> cartModelList) {
         this.cartModelList = cartModelList;
     }
-    public static Cart getInstance(){
-        if(cart == null){
+
+    public static Cart getInstance() {
+        if (cart == null) {
             cart = new Cart();
         }
         return cart;
@@ -114,28 +111,28 @@ public class Cart extends AppCompatActivity {
     private void calculateTotalAmount(List<CartModel> cartModelList) {
 
         double totalAmount = 0.00;
-        for(CartModel cartModel : cartModelList){
+        for (CartModel cartModel : cartModelList) {
             totalAmount += cartModel.getPrice();
         }
 //        return totalAmount;
-        overTotalAmount.setText("TOTAL: " + totalAmount );
+        overTotalAmount.setText("TOTAL: " + totalAmount);
     }
 
 
     public void goToCart(View view) {
-        Intent intent  = new Intent(Cart.this, Profile.class);
+        Intent intent = new Intent(Cart.this, Profile.class);
         startActivity(intent);
         finish();
     }
 
     public void goToCheckOut(View view) {
-        Intent intent  = new Intent(Cart.this, Checkout.class);
+        Intent intent = new Intent(Cart.this, Checkout.class);
         startActivity(intent);
         Cart.getInstance().setList(cartModelList);
     }
 
     public void goToProfile(View view) {
-        Intent intent  = new Intent(Cart.this, Profile.class);
+        Intent intent = new Intent(Cart.this, Profile.class);
         startActivity(intent);
         finish();
     }
@@ -148,14 +145,10 @@ public class Cart extends AppCompatActivity {
     }
 
     public void goToProduct(View view) {
-        Intent intent  = new Intent(Cart.this, Product.class);
+        Intent intent = new Intent(Cart.this, Product.class);
         startActivity(intent);
         finish();
     }
-
-
-
-
 
 
 }

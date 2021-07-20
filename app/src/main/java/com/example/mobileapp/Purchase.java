@@ -24,16 +24,14 @@ public class Purchase extends AppCompatActivity {
         Button btnBuyNow = findViewById(R.id.buy_now_button);
         ImageView shoppingCartImage = findViewById(R.id.shopping_cart_image);
         View commentSendBtn = findViewById(R.id.comment_send_btn);
+        Intent i = getIntent();
+        String productName = i.getStringExtra("productName");
+        System.out.println(productName);
 
-        if (getIntent().hasExtra("product_id")) {
-            product_id = getIntent().getStringExtra("product_id");
+        if (getIntent().hasExtra("productName")) {
+            product_id = getIntent().getStringExtra("productName");
             Log.d("product id: ", product_id);
         }
-
-        btnBuyNow.setOnClickListener(v -> {
-            startActivity(new Intent(Purchase.this, Product.class));
-            finish();
-        });
 
 //        shoppingCartImage.setOnClickListener(v -> {
 //            startActivity(new Intent(Purchase.this, Cart.class));
@@ -53,7 +51,6 @@ public class Purchase extends AppCompatActivity {
     public void addProductsToView(ProductModel productModel) {
 
 
-
     }
 
     private void saveCommentToFirebase() {
@@ -68,26 +65,35 @@ public class Purchase extends AppCompatActivity {
 
 
     public void goToNotifications(View view) {
-        Intent intent  = new Intent(Purchase.this, Notifications.class);
+        Intent intent = new Intent(Purchase.this, Notifications.class);
         startActivity(intent);
         finish();
     }
 
 
-       public void goToProfile(View view) {
-        Intent intent  = new Intent(Purchase.this, Profile.class);
+    public void goToProfile(View view) {
+        Intent intent = new Intent(Purchase.this, Profile.class);
         startActivity(intent);
         finish();
     }
 
 
     public void goToCart(View view) {
-        Intent intent  = new Intent(Purchase.this, Cart.class);
+        Intent intent = new Intent(Purchase.this, Cart.class);
         startActivity(intent);
         finish();
     }
 
+    public void goToProduct(View view) {
+        Intent intent = new Intent(Purchase.this, Product.class);
+        startActivity(intent);
+        finish();
+    }
 
-
+    public void goToCheckOut(View view) {
+        Intent intent = new Intent(Purchase.this, Checkout.class);
+        startActivity(intent);
+        finish();
+    }
 
 }

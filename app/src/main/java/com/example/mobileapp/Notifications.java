@@ -58,6 +58,7 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
 
 
 
+
 //                Intent intent = new Intent(Notifications.this, Product.class);
 //                startActivity(intent);
                 finish();
