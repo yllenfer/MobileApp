@@ -103,5 +103,25 @@ public class Checkout extends BaseActivity {
         FirebaseClass.addAddress(Checkout.this, addressClass);
 
     }
+
+    public void btnNotification(View view) {
+        Intent intent = new Intent(Checkout.this, Notifications.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void btnUser(View view) {
+        Intent intent = new Intent(Checkout.this, Profile.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void btnCart(View view) {
+        Intent intent = new Intent(Checkout.this, Cart.class);
+        startActivity(intent);
+        finish();
+    }
+
+
 }
 

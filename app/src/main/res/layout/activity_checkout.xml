@@ -60,6 +60,7 @@
 
     <ImageView
         android:id="@+id/shopping_cart_image"
+        android:onClick="btnCart"
         android:layout_width="31dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -274,6 +275,7 @@
 
     <ImageView
         android:id="@+id/notification"
+        android:onClick="btnNotification"
         android:layout_width="37dp"
         android:layout_height="34dp"
         android:layout_marginStart="32dp"
@@ -286,6 +288,7 @@
 
     <ImageView
         android:id="@+id/userImage"
+        android:onClick="btnUser"
         android:layout_width="38dp"
         android:layout_height="32dp"
         android:layout_marginEnd="28dp"
