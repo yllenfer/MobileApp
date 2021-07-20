@@ -46,9 +46,8 @@ public class Checkout extends BaseActivity {
             //created function to have the imageView go back to desired activity
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Checkout.this, Purchase.class);
-                startActivity(intent);
-                finish();
+                onBackPressed();
+
             }
         });
     }

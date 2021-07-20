@@ -43,10 +43,10 @@ public class Purchase extends AppCompatActivity {
         ImageView shoppingCartImage = findViewById(R.id.shopping_cart_image);
         View commentSendBtn = findViewById(R.id.comment_send_btn);
         Intent i = getIntent();
-        String productName = i.getStringExtra("productName");
-        System.out.println(productName);
+        String productID = i.getStringExtra("productID");
+        System.out.println(productID);
 
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("products").child(productName);
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("products").child(productID);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -56,6 +56,7 @@ public class Purchase extends AppCompatActivity {
                 TextView title = findViewById(R.id.titleProduct);
                 TextView price = findViewById(R.id.product_price);
 
+                assert product != null;
                 description.setText(product.getDescription());
                 Glide.with(Purchase.this).load(product.getImage()).into(image);
                 title.setText(product.getProduct_name());
@@ -81,9 +82,9 @@ public class Purchase extends AppCompatActivity {
                     User user = new User(userFirebase.getEmail(), FirebaseClass.getUserID());
 
                     String timeStamp = new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime());
-                    MessagesModel messagesModel = new MessagesModel(commentInput.getText().toString(), user , timeStamp);
+                    MessagesModel messagesModel = new MessagesModel(commentInput.getText().toString(), user , "777");
 
-                    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("messages").child(timeStamp).push();
+                    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("messages").child("777").push();
                     db.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -97,6 +98,7 @@ public class Purchase extends AppCompatActivity {
                         }
                     });
                     commentInput.setText("");
+                    Toast.makeText(Purchase.this, "message sent", Toast.LENGTH_LONG).show();
 
                 }
             }

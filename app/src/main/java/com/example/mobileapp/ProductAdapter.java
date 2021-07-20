@@ -65,11 +65,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String product_name = productModelList.get(position).getProduct_name();
+                String product_id = productModelList.get(position).getId();
                 Intent intent = new Intent(v.getContext() , Purchase.class);
-                intent.putExtra("productName", product_name);
+                intent.putExtra("productID", product_id);
                 v.getContext().startActivity(intent);
-                System.out.println("testing click on item view " + position);
+
             }
         });
 
