@@ -105,15 +105,12 @@ public class Product extends AppCompatActivity implements Serializable {
 
     public void goToCart(View view) {
         if (user != null) {
-
             Intent intent = new Intent(Product.this, Cart.class);
             startActivity(intent);
-            finish();
 
         } else {
             Intent intent = new Intent(Product.this, LogIn.class);
             startActivity(intent);
-            finish();
 
         }
     }
@@ -121,15 +118,14 @@ public class Product extends AppCompatActivity implements Serializable {
 
     public void goToProfile(View view) {
         if (user != null) {
-
             Intent intent = new Intent(Product.this, Profile.class);
             startActivity(intent);
-            finish();
+
 
         } else {
             Intent intent = new Intent(Product.this, LogIn.class);
             startActivity(intent);
-            finish();
+
 
         }
 
@@ -139,14 +135,12 @@ public class Product extends AppCompatActivity implements Serializable {
     public void goToNotifications(View view) {
         Intent intent = new Intent(Product.this, Notifications.class);
         startActivity(intent);
-        finish();
     }
 
 
     public void goToPurchase(View view) {
         Intent intent = new Intent(Product.this, LogIn.class);
         startActivity(intent);
-        finish();
     }
 
 

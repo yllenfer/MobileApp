@@ -25,7 +25,6 @@ public class TCTextViewBold extends AppCompatTextView {
 
     private void init() {
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "publicsans_bold.otf");
-        setTypeface(tf);
 
     }
 }

@@ -104,38 +104,9 @@ public class FirebaseClass {
 
     }
 
-    public static void addMessage(Purchase purchase, CommentModel commentModel) {
-        db = FirebaseDatabase.getInstance().getReference().child("notifications").push();
-        String message = commentModel.getMessage();
-        db.child("message").setValue(message);
-
-        Toast.makeText(purchase, "message sent", Toast.LENGTH_LONG).show();
-
-    }
-
-    //working on
-    public static void getProductDetails(Purchase purchase, String productID) {
-        db = FirebaseDatabase.getInstance().getReference("products").child(productID);
-
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                ProductModel productModel = snapshot.getValue(ProductModel.class);
-                purchase.addProductsToView(productModel);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
-
-    }
-
     public static void setMessageData(MessagesModel messagesModel) {
-        long date = messagesModel.getCreatedAt();
-        db = FirebaseDatabase.getInstance().getReference("messages").child(Long.toString(date)).push();
+        String date = messagesModel.getCreatedAt();
+        db = FirebaseDatabase.getInstance().getReference("messages").child(date).push();
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {

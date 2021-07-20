@@ -58,16 +58,7 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarBottom"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@drawable/ic_bottom_layer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp">
 
-
-    </androidx.appcompat.widget.Toolbar>
 
 
     <ImageView
@@ -77,6 +68,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
+        android:onClick="goToCart"
         app:layout_constraintBottom_toBottomOf="@+id/toolbarCheckout"
         app:layout_constraintEnd_toEndOf="@+id/toolbarCheckout"
         app:layout_constraintTop_toTopOf="parent"
@@ -84,41 +76,22 @@
         app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
         tools:ignore="VectorDrawableCompat" />
 
-    <ImageView
-        android:id="@+id/notification"
-        android:layout_width="37dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/toolbarBottom"
-        app:srcCompat="@drawable/ic_baseline_notifications_active_24"
-        tools:ignore="VectorDrawableCompat" />
-
-    <ImageView
-        android:id="@+id/userImage"
-        android:layout_width="38dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="8dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/toolbarBottom"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24"
-        tools:ignore="VectorDrawableCompat" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="593dp"
         app:layout_constraintBottom_toTopOf="@+id/toolbarBottom"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCheckout">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCheckout"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:layout_height="wrap_content">
 
 
@@ -126,64 +99,67 @@
                 android:id="@+id/contact"
                 android:layout_width="264dp"
                 android:layout_height="44dp"
-                android:layout_marginStart="72dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/btn_bg"
                 android:text="contact us: +51 222-222-222"
                 android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.example.mobileapp.utils.TCTextViewBold
                 android:id="@+id/titleProduct"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="48dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="12dp"
                 android:gravity="center"
+                android:textSize="25dp"
                 android:text="MacBook"
                 android:textColor="#FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productImage" />
 
-            <TextView
+            <com.example.mobileapp.utils.TCTextView
                 android:id="@+id/description"
                 android:layout_width="313dp"
                 android:layout_height="126dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:text="Description\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit"
                 android:textColor="#FFFFFF"
-                app:layout_constraintStart_toStartOf="@+id/titleProduct"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleProduct" />
 
             <ImageView
                 android:id="@+id/productImage"
-                android:layout_width="164dp"
-                android:layout_height="156dp"
-                android:layout_marginStart="72dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@+id/titleProduct"
+                android:layout_width="290dp"
+                android:layout_height="167dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/contact"
                 tools:srcCompat="@tools:sample/avatars" />
 
-            <TextView
+            <com.example.mobileapp.utils.TCTextViewBold
                 android:id="@+id/product_price"
+                android:textSize="25dp"
                 android:layout_width="wrap_content"
-                android:layout_height="29dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="52dp"
                 android:text="$2500"
                 android:textColor="@color/white"
                 app:layout_constraintBaseline_toBaselineOf="@+id/titleProduct"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.815"
-                app:layout_constraintStart_toEndOf="@+id/titleProduct" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@+id/description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/description">
 
                 <com.example.mobileapp.utils.TCTextView
@@ -197,7 +173,7 @@
                 <ImageView
                     android:id="@+id/imageView19"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/ic_baseline_star_rate_241"
                     tools:ignore="VectorDrawableCompat" />
 
@@ -232,18 +208,18 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
-                android:layout_width="306dp"
+                android:layout_width="wrap_content"
                 android:layout_height="57dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
                 app:layout_constraintVertical_bias="1.0">
 
-                <Button
+                <com.example.mobileapp.utils.TCButton
                     android:id="@+id/buy_now_button"
                     android:layout_width="141dp"
                     android:layout_height="49dp"
@@ -252,7 +228,7 @@
                     android:text="BUY NOW"
                     android:textColor="#FFFFFF" />
 
-                <Button
+                <com.example.mobileapp.utils.TCButton
                     android:id="@+id/add_to_cart_button"
                     android:layout_width="137dp"
                     android:layout_height="51dp"
@@ -268,7 +244,8 @@
                 android:layout_height="51dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -276,7 +253,8 @@
                     android:layout_width="265dp"
                     android:layout_height="wrap_content"
                     android:hint="Comment"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="@color/white" />
 
                 <ImageView
                     android:id="@+id/comment_send_btn"
@@ -290,6 +268,42 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarBottom"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/ic_bottom_layer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/notification"
+        android:layout_width="37dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="goToNotifications"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbarBottom"
+        app:srcCompat="@drawable/ic_baseline_notifications_active_24"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="goToProfile"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarBottom"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24"
+        tools:ignore="VectorDrawableCompat" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,12 +55,6 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
-//                Intent intent = new Intent(Notifications.this, Product.class);
-//                startActivity(intent);
                 finish();
             }
         });
