@@ -2,8 +2,6 @@ package com.example.mobileapp;
 
 public class CartModel {
 
-
-
     public String getProduct_name() {
         return product_name;
     }

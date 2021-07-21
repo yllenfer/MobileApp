@@ -15,6 +15,8 @@ import com.example.mobileapp.adapters.NotificationAdapter;
 import com.example.mobileapp.firestore.FirebaseClass;
 import com.example.mobileapp.models.MessagesModel;
 import com.example.mobileapp.models.NotificationModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -33,10 +35,8 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
-        System.out.println(convertTime(1589595738));
-        User user = new User();
+        FirebaseUser userFirebase = FirebaseAuth.getInstance().getCurrentUser();
 
-        //getFromFirebase();
 
         list = new ArrayList<>();
         buildRecycler();
@@ -55,11 +55,6 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-//                Intent intent = new Intent(Notifications.this, Product.class);
-//                startActivity(intent);
                 finish();
             }
         });
@@ -91,7 +86,6 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
 
     @Override
     public void onItemClick(int position, String date) {
-
         clearData(list);
         Intent intent = new Intent(Notifications.this, Chat.class);
         System.out.println(position);
@@ -104,5 +98,17 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
         Date date = new Date(time * 1000);
         Format format = new SimpleDateFormat("MMMM dd");
         return format.format(date);
+    }
+
+    public void goToUser(View view) {
+        Intent intent = new Intent(Notifications.this, Profile.class);
+        startActivity(intent);
+        finish();
+    }
+    public void buttonToCart(View view) {
+        Intent intent = new Intent(Notifications.this, Cart.class);
+        startActivity(intent);
+        finish();
+
     }
 }

@@ -2,21 +2,25 @@ package com.example.mobileapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mobileapp.firestore.FirebaseClass;
 import com.example.mobileapp.utils.TCTextView;
 
+import java.util.List;
 import java.util.Map;
 
 public class Overview extends AppCompatActivity {
     public String productName = "";
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +29,27 @@ public class Overview extends AppCompatActivity {
         View backButton = findViewById(R.id.back_button);
         getAddressFireBase();
 
-        String productName = getIntent().getStringExtra("productName");
+        List<CartModel> cartList = Cart.getInstance().getList();
+
+
+        StringBuilder productsList = new StringBuilder();
+
+        int i = 1;
+        float total = 0;
+        for (CartModel cartModel: cartList) {
+            System.out.println(cartModel);
+            productsList.append(i + " " + cartModel.getProduct_name() + " " + "$"+ cartModel.getPrice() + " \n");
+            total += cartModel.getPrice();
+        }
+
+
+
+        TextView productBox = findViewById(R.id.products_box);
+        TextView totalView = findViewById(R.id.total);
+
+        productBox.setText(productsList);
+        totalView.setText("Total: " + total);
+
 
         completeOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,30 +1,28 @@
 package com.example.mobileapp;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.mobileapp.firestore.FirebaseClass;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.Map;
 
-public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.ViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
 
     private Context context;
@@ -60,11 +58,19 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.ViewHol
                 FirebaseDatabase.getInstance().getReference().child("products").child(productModelList.get(position).getId()).child("cart").setValue(true);
 
 
-
-
             }
 
 
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String product_id = productModelList.get(position).getId();
+                Intent intent = new Intent(v.getContext() , Purchase.class);
+                intent.putExtra("productID", product_id);
+                v.getContext().startActivity(intent);
+
+            }
         });
 
 
@@ -77,9 +83,6 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.ViewHol
     }
 
 
-
-
-
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
@@ -88,7 +91,6 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.ViewHol
         TextView name;
         TextView quantity;
         Button addtocart;
-
 
 
         public ViewHolder(@NonNull @NotNull View itemView) {
@@ -103,9 +105,6 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.ViewHol
 
 
         }
-
-
-
 
 
     }

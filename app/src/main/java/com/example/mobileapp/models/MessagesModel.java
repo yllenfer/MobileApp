@@ -5,13 +5,13 @@ import com.example.mobileapp.User;
 public class MessagesModel {
     public String message;
     public User sender;
-    public long createdAt;
+    public String createdAt;
 
     public MessagesModel() {
 
     }
 
-    public MessagesModel(String message, User sender, long createdAt) {
+    public MessagesModel(String message, User sender, String createdAt) {
         this.message = message;
         this.sender = sender;
         this.createdAt = createdAt;
@@ -29,7 +29,7 @@ public class MessagesModel {
         return sender;
     }
 
-    public long getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 

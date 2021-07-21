@@ -3,17 +3,10 @@ package com.example.mobileapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,12 +18,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.makeramen.roundedimageview.RoundedImageView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Product extends AppCompatActivity {
+public class Product extends AppCompatActivity implements Serializable {
 
     RecyclerView productRecycler;
     List<ProductModel> productModelList;
@@ -40,9 +33,6 @@ public class Product extends AppCompatActivity {
 //    RoundedImageView imageView;
 
 
-
-
-
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
@@ -50,14 +40,14 @@ public class Product extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-      setContentView(R.layout.fragment_home);
-      db = FirebaseDatabase.getInstance().getReference().child("products");
+        setContentView(R.layout.fragment_home);
+        db = FirebaseDatabase.getInstance().getReference().child("products");
 //      Button bnt = findViewById(R.id.addtocart);
 
         productRecycler = findViewById(R.id.recyclerView);
-        productRecycler.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL, false));
+        productRecycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         productModelList = new ArrayList<>();
-        productAdapter = new ProductAdapter(this,productModelList);
+        productAdapter = new ProductAdapter(this, productModelList);
         productRecycler.setAdapter(productAdapter);
 //        imageView = findViewById(R.id.roundedImage);
 //        imageView.setOnClickListener(new View.OnClickListener() {
@@ -73,13 +63,13 @@ public class Product extends AppCompatActivity {
 
         Query myRef;
         db.addValueEventListener(new ValueEventListener() {
-            private static final String TAG ="" ;
+            private static final String TAG = "";
 
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot ) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
                 productModelList.clear();
 
-                for (DataSnapshot child: dataSnapshot.getChildren()) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
                     ProductModel productModel = child.getValue(ProductModel.class);
                     //This line will go in cart class
 //                    if (productModel.cart)
@@ -87,7 +77,7 @@ public class Product extends AppCompatActivity {
 //                    Toast.makeText(Product.this, "added", Toast.LENGTH_SHORT).show();
                 }
 
-                productAdapter = new ProductAdapter(getBaseContext(),productModelList);
+                productAdapter = new ProductAdapter(getBaseContext(), productModelList);
                 productRecycler.setAdapter(productAdapter);
 
             }
@@ -100,12 +90,6 @@ public class Product extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
 //     bnt.setOnClickListener(new View.OnClickListener() {
 //
 //         @Override
@@ -116,69 +100,48 @@ public class Product extends AppCompatActivity {
 //     });
 
 
-
     }
 
 
     public void goToCart(View view) {
-        if(user!= null){
-
-            Intent intent  = new Intent(Product.this, Cart.class);
+        if (user != null) {
+            Intent intent = new Intent(Product.this, Cart.class);
             startActivity(intent);
-            finish();
 
-        }else {
-            Intent intent  = new Intent(Product.this, LogIn.class);
+        } else {
+            Intent intent = new Intent(Product.this, LogIn.class);
             startActivity(intent);
-            finish();
 
         }
     }
 
 
     public void goToProfile(View view) {
-        if(user!= null){
-
-            Intent intent  = new Intent(Product.this, Profile.class);
+        if (user != null) {
+            Intent intent = new Intent(Product.this, Profile.class);
             startActivity(intent);
-            finish();
 
-        }else {
-            Intent intent  = new Intent(Product.this, LogIn.class);
+
+        } else {
+            Intent intent = new Intent(Product.this, LogIn.class);
             startActivity(intent);
-            finish();
+
 
         }
-
-
 
 
     }
 
     public void goToNotifications(View view) {
-        if(user!= null){
-
-            Intent intent  = new Intent(Product.this, Notifications.class);
-            startActivity(intent);
-            finish();
-
-        }else {
-            Intent intent  = new Intent(Product.this, LogIn.class);
-            startActivity(intent);
-            finish();
-
-        }
+        Intent intent = new Intent(Product.this, Notifications.class);
+        startActivity(intent);
     }
 
 
     public void goToPurchase(View view) {
-        Intent intent  = new Intent(Product.this, LogIn.class);
+        Intent intent = new Intent(Product.this, LogIn.class);
         startActivity(intent);
-        finish();
     }
-
-
-
 
 
 }

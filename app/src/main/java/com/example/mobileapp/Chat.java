@@ -71,7 +71,7 @@ public class Chat extends AppCompatActivity {
 
                 FirebaseClass.setMessageData(new MessagesModel(textMessage.getText().toString(),
                         userfirebase,
-                        Long.parseLong(dateSent)));
+                        dateSent));
 
                 clearData(list);
                 recyclerView.scrollToPosition(list.size() - 1);
@@ -82,7 +82,7 @@ public class Chat extends AppCompatActivity {
 
     }
 
-    public void createList(String message, User user, Long date) {
+    public void createList(String message, User user, String date) {
         list.add(new MessagesModel(message, user, date));
         adapter.notifyDataSetChanged();
 
