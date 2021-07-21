@@ -156,9 +156,18 @@ public class Product extends AppCompatActivity {
     }
 
     public void goToNotifications(View view) {
-        Intent intent  = new Intent(Product.this, Notifications.class);
-        startActivity(intent);
-        finish();
+        if(user!= null){
+
+            Intent intent  = new Intent(Product.this, Notifications.class);
+            startActivity(intent);
+            finish();
+
+        }else {
+            Intent intent  = new Intent(Product.this, LogIn.class);
+            startActivity(intent);
+            finish();
+
+        }
     }
 
 

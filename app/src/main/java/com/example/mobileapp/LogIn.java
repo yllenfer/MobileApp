@@ -41,11 +41,6 @@ public class LogIn extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         dataBase = FirebaseDatabase.getInstance().getReference();
         user = mAuth.getCurrentUser();
-        if (user != null) {
-            Intent intent  = new Intent(LogIn.this, Product.class);
-            startActivity(intent);
-            finish();
-        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             final WindowInsetsController insetsController = getWindow().getInsetsController();
