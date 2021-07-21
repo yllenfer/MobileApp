@@ -9,7 +9,7 @@
     tools:context=".Checkout">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarCheckout"
+        android:id="@+id/toolbarChat"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/black"
@@ -66,8 +66,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbarCheckout"
-        app:layout_constraintEnd_toEndOf="@+id/toolbarCheckout"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarChat"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarChat"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
@@ -93,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCheckout"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarChat"
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout

@@ -36,52 +36,41 @@ public class MessageListAdapter extends RecyclerView.Adapter {
     }
 
     private static class ReceivedMessageHolder extends RecyclerView.ViewHolder {
-        public TextView timeText, textMessage, userName;
+        public TextView timeText, textMessage, userName, date;
 
         ReceivedMessageHolder(View itemView) {
             super(itemView);
             timeText = itemView.findViewById(R.id.text_gchat_timestamp_other);
             textMessage = itemView.findViewById(R.id.text_gchat_message_other);
             userName = itemView.findViewById(R.id.text_gchat_user_other);
+            //date = itemView.findViewById(R.id.text_gchat_date_other);
 
         }
 
         void bind(MessagesModel message) {
             userName.setText(message.getSender().getName());
             textMessage.setText(message.getMessage());
-            //testing code
-            long epochTime = System.currentTimeMillis();
-            Date date = new Date(epochTime);
-            DateFormat format = new SimpleDateFormat("H:m MMMM dd yyyy");
-            format.setTimeZone(TimeZone.getTimeZone("GMT-5:00"));
-            String convertedDate = format.format(date);
-            timeText.setText(convertedDate);
-
+            timeText.setText(message.getCreatedAt());
+            //date.setText(message.getCreatedAt());
 
         }
     }
 
     private static class SentMessageHolder extends RecyclerView.ViewHolder {
-        public TextView textMessage, userName;
+        public TextView textMessage, date;
         public TextView timeText;
 
         SentMessageHolder(View itemView) {
             super(itemView);
             timeText = itemView.findViewById(R.id.text_gchat_timestamp_me);
             textMessage = itemView.findViewById(R.id.text_gchat_message_me);
-
-
-
+            //date = itemView.findViewById(R.id.text_gchat_date_me);
         }
 
         void bind(MessagesModel message) {
             textMessage.setText(message.getMessage());
-
-            long epochTime = System.currentTimeMillis();
-            Date date = new Date(epochTime * 1000);
-            Format format = new SimpleDateFormat("H:m");
-            String convertedDate = format.format(date);
-            timeText.setText(convertedDate);
+            timeText.setText(message.getCreatedAt());
+            //date.setText(message.getCreatedAt());
 
         }
     }

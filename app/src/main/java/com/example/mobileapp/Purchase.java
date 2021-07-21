@@ -81,10 +81,10 @@ public class Purchase extends AppCompatActivity {
                     FirebaseUser userFirebase = FirebaseAuth.getInstance().getCurrentUser();
                     User user = new User(userFirebase.getEmail(), FirebaseClass.getUserID());
 
-                    String timeStamp = new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime());
-                    MessagesModel messagesModel = new MessagesModel(commentInput.getText().toString(), user , "777");
+                    String timeStamp = new SimpleDateFormat("MMMM-dd-yyyy").format(Calendar.getInstance().getTime());
+                    MessagesModel messagesModel = new MessagesModel(commentInput.getText().toString(), user , timeStamp);
 
-                    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("messages").child("777").push();
+                    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("messages").child(timeStamp).push();
                     db.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -103,6 +103,11 @@ public class Purchase extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    public void toCart(View view) {
+
 
     }
 
@@ -136,5 +141,6 @@ public class Purchase extends AppCompatActivity {
         Intent intent = new Intent(Purchase.this, Checkout.class);
         startActivity(intent);
     }
+
 
 }

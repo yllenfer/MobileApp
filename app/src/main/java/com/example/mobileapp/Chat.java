@@ -40,7 +40,6 @@ public class Chat extends AppCompatActivity {
     ArrayList<MessagesModel> list;
     public String dateSent;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

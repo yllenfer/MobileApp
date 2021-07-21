@@ -37,7 +37,6 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
 
         FirebaseUser userFirebase = FirebaseAuth.getInstance().getCurrentUser();
 
-
         list = new ArrayList<>();
         buildRecycler();
         FirebaseClass.getNotificationData(this);
@@ -66,8 +65,8 @@ public class Notifications extends AppCompatActivity implements NotificationAdap
 
     }
 
-    public void createList(String date) {
-        list.add(new NotificationModel("New Message", "message from an employee", date));
+    public void createList(String email, String message, String date) {
+        list.add(new NotificationModel(email, message, date));
         adapter.notifyDataSetChanged();
 
     }

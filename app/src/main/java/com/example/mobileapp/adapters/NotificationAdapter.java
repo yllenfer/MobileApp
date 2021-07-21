@@ -63,13 +63,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         notification = list.get(position);
         holder.text1.setText(notification.getTitle());
         holder.text2.setText(notification.getNotification_message());
+        String date = notification.getTime;
 
-        long epochTime = Long.parseLong(notification.getGetTime());
-        Date date = new Date(epochTime * 1000);
-        Format format = new SimpleDateFormat("MMMM dd");
-        String convertedDate = format.format(date);
 
-        holder.date.setText(convertedDate);
+        holder.date.setText(date);
 
         String daten = notification.getGetTime();
 

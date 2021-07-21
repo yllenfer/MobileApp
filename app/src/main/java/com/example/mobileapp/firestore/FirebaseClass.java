@@ -157,7 +157,7 @@ public class FirebaseClass {
                         if (user.getUserId().equals(FirebaseClass.getUserID())) {
                             if (!dateTitle.equals(random.getValue(MessagesModel.class).getCreatedAt())) {
                                 dateTitle = random.getValue(MessagesModel.class).getCreatedAt();
-                                notifications.createList(dateTitle);
+                                notifications.createList(user.getName(), random.getValue(MessagesModel.class).getMessage() ,dateTitle);
 
                             }
 
