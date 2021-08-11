@@ -74,14 +74,6 @@
 
             android:layout_marginLeft="330dp"/>
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="45dp"
-        android:layout_height="37dp"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/ic_baseline_check_circle_24" />
-
 
     <!--    </LinearLayout>-->
 </androidx.cardview.widget.CardView>
