@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.SearchView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,13 +24,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Product extends AppCompatActivity implements Serializable {
+public class Product extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     RecyclerView productRecycler;
     List<ProductModel> productModelList;
     ProductAdapter productAdapter;
     DatabaseReference db;
     FirebaseUser user;
+    SearchView search;
 //    RoundedImageView imageView;
 
 
@@ -45,6 +47,7 @@ public class Product extends AppCompatActivity implements Serializable {
 //      Button bnt = findViewById(R.id.addtocart);
 
         productRecycler = findViewById(R.id.recyclerView);
+        search = findViewById(R.id.search_bar);
         productRecycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         productModelList = new ArrayList<>();
         productAdapter = new ProductAdapter(this, productModelList);
@@ -60,6 +63,7 @@ public class Product extends AppCompatActivity implements Serializable {
 //            }
 //        });
 
+        search.setOnQueryTextListener(this);
 
         Query myRef;
         db.addValueEventListener(new ValueEventListener() {
@@ -144,4 +148,14 @@ public class Product extends AppCompatActivity implements Serializable {
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        productAdapter.filter(newText);
+        return false;
+    }
 }

@@ -20,7 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
@@ -28,11 +30,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     private Context context;
     private List<ProductModel> productModelList;
 //    Button button;
+    ArrayList<ProductModel> originalProduct;
 
 
     public ProductAdapter(Context context, List<ProductModel> productModelList) {
         this.context = context;
         this.productModelList = productModelList;
+        originalProduct = new ArrayList<>();
+        originalProduct.addAll(productModelList);
+
     }
 
 
@@ -61,6 +67,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             }
 
 
+
         });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +80,32 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             }
         });
 
+
+    }
+
+    public void filter(String findText){
+        int sizeOfText = findText.length();
+        if(sizeOfText == 0){
+            productModelList.clear();
+            productModelList.addAll(originalProduct);
+
+        } else {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                List<ProductModel> collection = productModelList.stream()
+                        .filter(i -> i.getProduct_name().toLowerCase().contains(findText.toLowerCase()))
+                        .collect(Collectors.toList());
+                productModelList.clear();
+                productModelList.addAll(collection);
+            }else{
+                for(ProductModel p: originalProduct){
+                    if(p.getProduct_name().toLowerCase().contains(findText.toLowerCase())){
+                        productModelList.add(p);
+
+                    }
+                }
+            }
+        }
+        notifyDataSetChanged();
 
     }
 
