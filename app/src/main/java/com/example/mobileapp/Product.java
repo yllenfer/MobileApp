@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.SearchView;
 
 import androidx.annotation.Nullable;
@@ -37,9 +38,8 @@ public class Product extends AppCompatActivity implements SearchView.OnQueryText
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         setContentView(R.layout.fragment_home);

@@ -71,26 +71,23 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_marginBottom="4dp"
         android:background="@drawable/ic_bottom_layer"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-28dp">
+        tools:layout_editor_absoluteX="0dp">
 
 
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="392dp"
-        android:layout_height="468dp"
+        android:layout_width="391dp"
+        android:layout_height="579dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.482" />
-
+        app:layout_constraintVertical_bias="0.605" />
 
     <ImageView
         android:id="@+id/notification"
@@ -121,14 +118,20 @@
         tools:ignore="VectorDrawableCompat" />
 
     <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="156dp"
         android:id="@+id/search_bar"
+        android:layout_width="382dp"
+        android:layout_height="43dp"
+        android:text="@string/search"
+        android:textColor="@color/white"
+        android:layout_marginBottom="156dp"
+        android:background="@drawable/btn_bg"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107"
-        tools:layout_editor_absoluteX="-16dp" />
+        app:layout_constraintVertical_bias="0.119" >
+
+    </SearchView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

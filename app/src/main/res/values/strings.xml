@@ -27,6 +27,7 @@
     <string name="addtocart">ADD TO CART</string>
 
 
+
     <!--    Notification fragment activity -->
     <string name="empty_notification">Empty Notifications</string>
     <string name="description_notification">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida enim et purus ornare pellentesque. Donec f</string>
