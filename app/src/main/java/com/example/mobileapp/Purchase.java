@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,6 +46,7 @@ public class Purchase extends AppCompatActivity {
         Intent i = getIntent();
         String productID = i.getStringExtra("productID");
         System.out.println(productID);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("products").child(productID);
         db.addValueEventListener(new ValueEventListener() {
@@ -98,7 +100,7 @@ public class Purchase extends AppCompatActivity {
                         }
                     });
                     commentInput.setText("");
-                    Toast.makeText(Purchase.this, "message sent", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Purchase.this, "message sent", Toast.LENGTH_SHORT).show();
 
                 }
             }

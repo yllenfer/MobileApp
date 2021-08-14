@@ -2,10 +2,12 @@ package com.example.mobileapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Product extends AppCompatActivity implements SearchView.OnQueryTextListener {
-
+//TODO: Need to add documentation on this activity
     RecyclerView productRecycler;
     List<ProductModel> productModelList;
     ProductAdapter productAdapter;
@@ -76,9 +78,23 @@ public class Product extends AppCompatActivity implements SearchView.OnQueryText
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     ProductModel productModel = child.getValue(ProductModel.class);
                     //This line will go in cart class
-//                    if (productModel.cart)
-                    productModelList.add(productModel);
-//                    Toast.makeText(Product.this, "added", Toast.LENGTH_SHORT).show();
+//                     if (productModel.cart) {
+                       productModelList.add(productModel);
+                       //TODO: Need to add toasts for when the product is added
+                      //Toast.makeText(Cart.this, "Product has been added", Toast.LENGTH_SHORT).show();
+//
+//
+//                        final Toast toast = Toast.makeText(getApplicationContext(), "This message will disappear in half a second", Toast.LENGTH_SHORT);
+//                        toast.show();
+//
+//                        Handler handler = new Handler();
+//                        handler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                toast.cancel();
+//                            }
+//                        }, 1000);
+//                    }
                 }
 
                 productAdapter = new ProductAdapter(getBaseContext(), productModelList);

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
@@ -65,7 +66,8 @@ public class CartAdapter extends RecyclerView.Adapter <CartAdapter.ViewHolder>{
 //                }
 //                notifyDataSetChanged();
 
-                FirebaseDatabase.getInstance().getReference().child("products").child(cartModelList.get(position).getId()).child("cart").setValue(false);
+              FirebaseDatabase.getInstance().getReference().child("products").child(cartModelList.get(position).getId()).child("cart").setValue(false);
+
             }
 
 

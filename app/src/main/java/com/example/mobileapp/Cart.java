@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -69,7 +70,20 @@ public class Cart extends AppCompatActivity {
                     //This line will go in cart class
                     if (cartModel.cart) {
                         cartModelList.add(cartModel);
-                        Toast.makeText(Cart.this, "Product has been added", Toast.LENGTH_SHORT).show();
+                        //TODO: Need to add toasts for deleting items from cart
+                        //Toast.makeText(Cart.this, "Product has been added", Toast.LENGTH_SHORT).show();
+
+//
+//                        final Toast toast = Toast.makeText(getApplicationContext(), "Product has been added", Toast.LENGTH_SHORT);
+//                        toast.show();
+//
+//                        Handler handler = new Handler();
+//                        handler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                toast.cancel();
+//                            }
+//                        }, 1000);
                     }
                 }
 
